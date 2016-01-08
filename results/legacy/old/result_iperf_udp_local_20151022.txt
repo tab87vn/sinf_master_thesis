@@ -1,0 +1,1668 @@
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 42935 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  1.0- 2.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  2.0- 3.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  3.0- 4.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  4.0- 5.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  5.0- 6.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  6.0- 7.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  7.0- 8.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  8.0- 9.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  9.0-10.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 10.0-11.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 11.0-12.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 12.0-13.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 13.0-14.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 14.0-15.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 15.0-16.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 16.0-17.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 17.0-18.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 18.0-19.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 19.0-20.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 20.0-21.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 21.0-22.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 22.0-23.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 23.0-24.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 24.0-25.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 25.0-26.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 26.0-27.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 27.0-28.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 28.0-29.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 29.0-30.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec
+[  3] Sent 256411 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec   0.002 ms    7/256410 (0.0027%)
+[  3]  0.0-30.0 sec  8 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 44210 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  1.0- 2.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  2.0- 3.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  3.0- 4.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  4.0- 5.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  5.0- 6.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  6.0- 7.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  7.0- 8.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  8.0- 9.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  9.0-10.0 sec  24.1 MBytes   202 Mbits/sec
+[  3] 10.0-11.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 11.0-12.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 12.0-13.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 13.0-14.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 14.0-15.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 15.0-16.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 16.0-17.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 17.0-18.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 18.0-19.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 19.0-20.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 20.0-21.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 21.0-22.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 22.0-23.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 23.0-24.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 24.0-25.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 25.0-26.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 26.0-27.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 27.0-28.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 28.0-29.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 29.0-30.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec
+[  3] Sent 517174 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec   0.011 ms    0/517173 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 42126 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  1.0- 2.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  2.0- 3.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  3.0- 4.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  4.0- 5.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  5.0- 6.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  6.0- 7.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  7.0- 8.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  8.0- 9.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  9.0-10.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 10.0-11.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 11.0-12.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 12.0-13.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 13.0-14.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 14.0-15.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 15.0-16.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 16.0-17.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 17.0-18.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 18.0-19.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 19.0-20.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 20.0-21.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 21.0-22.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 22.0-23.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 23.0-24.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 24.0-25.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 25.0-26.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 26.0-27.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 27.0-28.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 28.0-29.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 29.0-30.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  0.0-30.0 sec  1.05 GBytes   301 Mbits/sec
+[  3] Sent 769099 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.05 GBytes   301 Mbits/sec   0.025 ms    0/769098 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 59084 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  1.0- 2.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  2.0- 3.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  3.0- 4.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  4.0- 5.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  5.0- 6.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  6.0- 7.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  7.0- 8.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  8.0- 9.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  9.0-10.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 10.0-11.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 11.0-12.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 12.0-13.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 13.0-14.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 14.0-15.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 15.0-16.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 16.0-17.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 17.0-18.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 18.0-19.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 19.0-20.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 20.0-21.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 21.0-22.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 22.0-23.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 23.0-24.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 24.0-25.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 25.0-26.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 26.0-27.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 27.0-28.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 28.0-29.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 29.0-30.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec
+[  3] Sent 1034307 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec   0.034 ms    1/1034306 (9.7e-05%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 49885 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  1.0- 2.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  2.0- 3.0 sec  61.0 MBytes   511 Mbits/sec
+[  3]  3.0- 4.0 sec  61.0 MBytes   511 Mbits/sec
+[  3]  4.0- 5.0 sec  60.5 MBytes   507 Mbits/sec
+[  3]  5.0- 6.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  6.0- 7.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  7.0- 8.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  8.0- 9.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  9.0-10.0 sec  60.7 MBytes   509 Mbits/sec
+[  3] 10.0-11.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 11.0-12.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 12.0-13.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 13.0-14.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 14.0-15.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 15.0-16.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 16.0-17.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 17.0-18.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 18.0-19.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 19.0-20.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 20.0-21.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 21.0-22.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 22.0-23.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 23.0-24.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 24.0-25.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 25.0-26.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 26.0-27.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 27.0-28.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 28.0-29.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 29.0-30.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  0.0-30.0 sec  1.78 GBytes   511 Mbits/sec
+[  3] Sent 1303431 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.78 GBytes   511 Mbits/sec   0.022 ms    0/1303430 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 50104 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  1.0- 2.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  2.0- 3.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  3.0- 4.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  4.0- 5.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  5.0- 6.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  6.0- 7.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  7.0- 8.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  8.0- 9.0 sec  73.7 MBytes   619 Mbits/sec
+[  3]  9.0-10.0 sec  73.2 MBytes   614 Mbits/sec
+[  3] 10.0-11.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 11.0-12.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 12.0-13.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 13.0-14.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 14.0-15.0 sec  73.4 MBytes   616 Mbits/sec
+[  3] 15.0-16.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 16.0-17.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 17.0-18.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 18.0-19.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 19.0-20.0 sec  73.6 MBytes   618 Mbits/sec
+[  3] 20.0-21.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 21.0-22.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 22.0-23.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 23.0-24.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 24.0-25.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 25.0-26.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 26.0-27.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 27.0-28.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 28.0-29.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 29.0-30.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  0.0-30.0 sec  2.16 GBytes   618 Mbits/sec
+[  3] Sent 1577503 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.16 GBytes   618 Mbits/sec   0.022 ms    3/1577502 (0.00019%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 60492 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  87.3 MBytes   733 Mbits/sec
+[  3]  1.0- 2.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  2.0- 3.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  3.0- 4.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  4.0- 5.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  5.0- 6.0 sec  86.8 MBytes   728 Mbits/sec
+[  3]  6.0- 7.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  7.0- 8.0 sec  87.6 MBytes   734 Mbits/sec
+[  3]  8.0- 9.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  9.0-10.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 10.0-11.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 11.0-12.0 sec  87.0 MBytes   730 Mbits/sec
+[  3] 12.0-13.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 13.0-14.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 14.0-15.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 15.0-16.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 16.0-17.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 17.0-18.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 18.0-19.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 19.0-20.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 20.0-21.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 21.0-22.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 22.0-23.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 23.0-24.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 24.0-25.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 25.0-26.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 26.0-27.0 sec  87.0 MBytes   729 Mbits/sec
+[  3] 27.0-28.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 28.0-29.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 29.0-30.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  0.0-30.0 sec  2.56 GBytes   734 Mbits/sec
+[  3] Sent 1872301 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.56 GBytes   733 Mbits/sec   0.025 ms 2265/1872300 (0.12%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 46851 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  96.4 MBytes   809 Mbits/sec
+[  3]  1.0- 2.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  2.0- 3.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  3.0- 4.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  4.0- 5.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  5.0- 6.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  6.0- 7.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  7.0- 8.0 sec  97.0 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  9.0-10.0 sec  95.4 MBytes   801 Mbits/sec
+[  3] 10.0-11.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 11.0-12.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 12.0-13.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 13.0-14.0 sec  97.0 MBytes   813 Mbits/sec
+[  3] 14.0-15.0 sec  95.9 MBytes   805 Mbits/sec
+[  3] 15.0-16.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 16.0-17.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 17.0-18.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 18.0-19.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 19.0-20.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 20.0-21.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 21.0-22.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 22.0-23.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 23.0-24.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 24.0-25.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 25.0-26.0 sec  95.8 MBytes   804 Mbits/sec
+[  3] 26.0-27.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 27.0-28.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 28.0-29.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 29.0-30.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   812 Mbits/sec
+[  3] Sent 2070182 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.82 GBytes   807 Mbits/sec   0.016 ms 11792/2070181 (0.57%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 57051 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  96.6 MBytes   811 Mbits/sec
+[  3]  1.0- 2.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  2.0- 3.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  3.0- 4.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  4.0- 5.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  5.0- 6.0 sec  95.6 MBytes   802 Mbits/sec
+[  3]  6.0- 7.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  97.0 MBytes   814 Mbits/sec
+[  3]  9.0-10.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 10.0-11.0 sec  95.5 MBytes   801 Mbits/sec
+[  3] 11.0-12.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 12.0-13.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 13.0-14.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 14.0-15.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 15.0-16.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 16.0-17.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 17.0-18.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 18.0-19.0 sec  96.6 MBytes   811 Mbits/sec
+[  3] 19.0-20.0 sec  96.6 MBytes   810 Mbits/sec
+[  3] 20.0-21.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 21.0-22.0 sec  95.8 MBytes   804 Mbits/sec
+[  3] 22.0-23.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 23.0-24.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 24.0-25.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 25.0-26.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 26.0-27.0 sec  95.5 MBytes   801 Mbits/sec
+[  3] 27.0-28.0 sec  96.7 MBytes   812 Mbits/sec
+[  3] 28.0-29.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 29.0-30.0 sec  97.0 MBytes   814 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   811 Mbits/sec
+[  3] Sent 2068350 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.80 GBytes   801 Mbits/sec   0.011 ms 24658/2068349 (1.2%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.22, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 42121 connected with 14.0.0.22 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  1.0- 2.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  4.0- 5.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  5.0- 6.0 sec  95.1 MBytes   798 Mbits/sec
+[  3]  6.0- 7.0 sec  96.9 MBytes   812 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  9.0-10.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 10.0-11.0 sec  95.5 MBytes   801 Mbits/sec
+[  3] 11.0-12.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 12.0-13.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 13.0-14.0 sec  97.3 MBytes   816 Mbits/sec
+[  3] 14.0-15.0 sec  96.3 MBytes   808 Mbits/sec
+[  3] 15.0-16.0 sec  97.1 MBytes   814 Mbits/sec
+[  3] 16.0-17.0 sec  96.4 MBytes   809 Mbits/sec
+[  3] 17.0-18.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 18.0-19.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 19.0-20.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 20.0-21.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 21.0-22.0 sec  95.9 MBytes   805 Mbits/sec
+[  3] 22.0-23.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 23.0-24.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 24.0-25.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 25.0-26.0 sec  96.6 MBytes   810 Mbits/sec
+[  3] 26.0-27.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 27.0-28.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 28.0-29.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 29.0-30.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   811 Mbits/sec
+[  3] Sent 2068934 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.76 GBytes   789 Mbits/sec   0.016 ms 55896/2068933 (2.7%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 41527 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  1.0- 2.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  2.0- 3.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  3.0- 4.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  4.0- 5.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  5.0- 6.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  6.0- 7.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  7.0- 8.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  8.0- 9.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  9.0-10.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 10.0-11.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 11.0-12.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 12.0-13.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 13.0-14.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 14.0-15.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 15.0-16.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 16.0-17.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 17.0-18.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 18.0-19.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 19.0-20.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 20.0-21.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 21.0-22.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 22.0-23.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 23.0-24.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 24.0-25.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 25.0-26.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 26.0-27.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 27.0-28.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 28.0-29.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 29.0-30.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec
+[  3] Sent 256411 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec   0.003 ms    5/256410 (0.002%)
+[  3]  0.0-30.0 sec  5 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 52777 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  1.0- 2.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  2.0- 3.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  3.0- 4.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  4.0- 5.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  5.0- 6.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  6.0- 7.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  7.0- 8.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  8.0- 9.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  9.0-10.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 10.0-11.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 11.0-12.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 12.0-13.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 13.0-14.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 14.0-15.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 15.0-16.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 16.0-17.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 17.0-18.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 18.0-19.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 19.0-20.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 20.0-21.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 21.0-22.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 22.0-23.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 23.0-24.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 24.0-25.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 25.0-26.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 26.0-27.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 27.0-28.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 28.0-29.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec
+[  3] Sent 517213 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec   0.010 ms    1/517212 (0.00019%)
+[  3]  0.0-30.0 sec  2 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 46236 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  1.0- 2.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  2.0- 3.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  3.0- 4.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  4.0- 5.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  5.0- 6.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  6.0- 7.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  7.0- 8.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  8.0- 9.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  9.0-10.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 10.0-11.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 11.0-12.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 12.0-13.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 13.0-14.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 14.0-15.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 15.0-16.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 16.0-17.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 17.0-18.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 18.0-19.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 19.0-20.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 20.0-21.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 21.0-22.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 22.0-23.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 23.0-24.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 24.0-25.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 25.0-26.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 26.0-27.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 27.0-28.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 28.0-29.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  0.0-30.0 sec  1.05 GBytes   302 Mbits/sec
+[  3] Sent 769141 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.05 GBytes   301 Mbits/sec   0.014 ms  327/769140 (0.043%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 45870 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  1.0- 2.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  2.0- 3.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  3.0- 4.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  4.0- 5.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  5.0- 6.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  6.0- 7.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  7.0- 8.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  8.0- 9.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  9.0-10.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 10.0-11.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 11.0-12.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 12.0-13.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 13.0-14.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 14.0-15.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 15.0-16.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 16.0-17.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 17.0-18.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 18.0-19.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 19.0-20.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 20.0-21.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 21.0-22.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 22.0-23.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 23.0-24.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 24.0-25.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 25.0-26.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 26.0-27.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 27.0-28.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 28.0-29.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 29.0-30.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec
+[  3] Sent 1034212 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec   0.005 ms    0/1034211 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 35985 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  1.0- 2.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  2.0- 3.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  3.0- 4.0 sec  61.0 MBytes   511 Mbits/sec
+[  3]  4.0- 5.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  5.0- 6.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  6.0- 7.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  7.0- 8.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  8.0- 9.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  9.0-10.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 10.0-11.0 sec  60.7 MBytes   509 Mbits/sec
+[  3] 11.0-12.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 12.0-13.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 13.0-14.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 14.0-15.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 15.0-16.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 16.0-17.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 17.0-18.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 18.0-19.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 19.0-20.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 20.0-21.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 21.0-22.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 22.0-23.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 23.0-24.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 24.0-25.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 25.0-26.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 26.0-27.0 sec  60.7 MBytes   509 Mbits/sec
+[  3] 27.0-28.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 28.0-29.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  0.0-30.0 sec  1.78 GBytes   511 Mbits/sec
+[  3] Sent 1303667 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.78 GBytes   511 Mbits/sec   0.010 ms    3/1303666 (0.00023%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 54754 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  1.0- 2.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  2.0- 3.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  3.0- 4.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  4.0- 5.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  5.0- 6.0 sec  73.2 MBytes   614 Mbits/sec
+[  3]  6.0- 7.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  7.0- 8.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  8.0- 9.0 sec  73.7 MBytes   619 Mbits/sec
+[  3]  9.0-10.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 10.0-11.0 sec  73.4 MBytes   616 Mbits/sec
+[  3] 11.0-12.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 12.0-13.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 13.0-14.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 14.0-15.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 15.0-16.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 16.0-17.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 17.0-18.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 18.0-19.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 19.0-20.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 20.0-21.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 21.0-22.0 sec  72.8 MBytes   610 Mbits/sec
+[  3] 22.0-23.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 23.0-24.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 24.0-25.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 25.0-26.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 26.0-27.0 sec  73.4 MBytes   616 Mbits/sec
+[  3] 27.0-28.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 28.0-29.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 29.0-30.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  0.0-30.0 sec  2.16 GBytes   618 Mbits/sec
+[  3] Sent 1576357 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.16 GBytes   618 Mbits/sec   0.010 ms  208/1576356 (0.013%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 58703 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  87.3 MBytes   732 Mbits/sec
+[  3]  1.0- 2.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  2.0- 3.0 sec  87.5 MBytes   734 Mbits/sec
+[  3]  3.0- 4.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  4.0- 5.0 sec  87.3 MBytes   732 Mbits/sec
+[  3]  5.0- 6.0 sec  86.4 MBytes   725 Mbits/sec
+[  3]  6.0- 7.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  7.0- 8.0 sec  87.6 MBytes   734 Mbits/sec
+[  3]  8.0- 9.0 sec  87.2 MBytes   732 Mbits/sec
+[  3]  9.0-10.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 10.0-11.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 11.0-12.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 12.0-13.0 sec  87.3 MBytes   732 Mbits/sec
+[  3] 13.0-14.0 sec  87.4 MBytes   734 Mbits/sec
+[  3] 14.0-15.0 sec  87.4 MBytes   733 Mbits/sec
+[  3] 15.0-16.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 16.0-17.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 17.0-18.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 18.0-19.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 19.0-20.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 20.0-21.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 21.0-22.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 22.0-23.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 23.0-24.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 24.0-25.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 25.0-26.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 26.0-27.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 27.0-28.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 28.0-29.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 29.0-30.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  0.0-30.0 sec  2.56 GBytes   734 Mbits/sec
+[  3] Sent 1871890 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.56 GBytes   734 Mbits/sec   0.011 ms    1/1871889 (5.3e-05%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 57209 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  95.5 MBytes   801 Mbits/sec
+[  3]  1.0- 2.0 sec  96.3 MBytes   808 Mbits/sec
+[  3]  2.0- 3.0 sec  97.0 MBytes   814 Mbits/sec
+[  3]  3.0- 4.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  4.0- 5.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  5.0- 6.0 sec  95.3 MBytes   800 Mbits/sec
+[  3]  6.0- 7.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  7.0- 8.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  8.0- 9.0 sec  96.1 MBytes   806 Mbits/sec
+[  3]  9.0-10.0 sec  95.8 MBytes   804 Mbits/sec
+[  3] 10.0-11.0 sec  93.8 MBytes   787 Mbits/sec
+[  3] 11.0-12.0 sec  97.1 MBytes   814 Mbits/sec
+[  3] 12.0-13.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 13.0-14.0 sec  96.2 MBytes   807 Mbits/sec
+[  3] 14.0-15.0 sec  95.2 MBytes   799 Mbits/sec
+[  3] 15.0-16.0 sec  96.3 MBytes   808 Mbits/sec
+[  3] 16.0-17.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 17.0-18.0 sec  96.1 MBytes   807 Mbits/sec
+[  3] 18.0-19.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 19.0-20.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 20.0-21.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 21.0-22.0 sec  95.3 MBytes   799 Mbits/sec
+[  3] 22.0-23.0 sec  96.6 MBytes   810 Mbits/sec
+[  3] 23.0-24.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 24.0-25.0 sec  96.7 MBytes   812 Mbits/sec
+[  3] 25.0-26.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 26.0-27.0 sec  96.2 MBytes   807 Mbits/sec
+[  3] 27.0-28.0 sec  96.0 MBytes   805 Mbits/sec
+[  3] 28.0-29.0 sec  94.9 MBytes   796 Mbits/sec
+[  3]  0.0-30.0 sec  2.82 GBytes   808 Mbits/sec
+[  3] Sent 2059968 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.81 GBytes   806 Mbits/sec   0.018 ms 4341/2059967 (0.21%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 35857 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  94.9 MBytes   796 Mbits/sec
+[  3]  1.0- 2.0 sec  96.9 MBytes   812 Mbits/sec
+[  3]  2.0- 3.0 sec  96.2 MBytes   807 Mbits/sec
+[  3]  3.0- 4.0 sec  96.2 MBytes   807 Mbits/sec
+[  3]  4.0- 5.0 sec  96.3 MBytes   808 Mbits/sec
+[  3]  5.0- 6.0 sec  95.4 MBytes   801 Mbits/sec
+[  3]  6.0- 7.0 sec  96.5 MBytes   810 Mbits/sec
+[  3]  7.0- 8.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  8.0- 9.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  9.0-10.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 10.0-11.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 11.0-12.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 12.0-13.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 13.0-14.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 14.0-15.0 sec  96.2 MBytes   807 Mbits/sec
+[  3] 15.0-16.0 sec  97.0 MBytes   813 Mbits/sec
+[  3] 16.0-17.0 sec  95.7 MBytes   803 Mbits/sec
+[  3] 17.0-18.0 sec  96.7 MBytes   812 Mbits/sec
+[  3] 18.0-19.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 19.0-20.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 20.0-21.0 sec  96.6 MBytes   811 Mbits/sec
+[  3] 21.0-22.0 sec  96.4 MBytes   808 Mbits/sec
+[  3] 22.0-23.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 23.0-24.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 24.0-25.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 25.0-26.0 sec  96.5 MBytes   809 Mbits/sec
+[  3] 26.0-27.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 27.0-28.0 sec  96.0 MBytes   805 Mbits/sec
+[  3] 28.0-29.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   809 Mbits/sec
+[  3] Sent 2064641 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.82 GBytes   807 Mbits/sec   0.020 ms 5418/2064640 (0.26%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.20, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 55026 connected with 14.1.0.20 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  94.8 MBytes   795 Mbits/sec
+[  3]  1.0- 2.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  4.0- 5.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  5.0- 6.0 sec  95.6 MBytes   802 Mbits/sec
+[  3]  6.0- 7.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  7.0- 8.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  8.0- 9.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  9.0-10.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 10.0-11.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 11.0-12.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 12.0-13.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 13.0-14.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 14.0-15.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 15.0-16.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 16.0-17.0 sec  94.5 MBytes   793 Mbits/sec
+[  3] 17.0-18.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 18.0-19.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 19.0-20.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 20.0-21.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 21.0-22.0 sec  95.5 MBytes   801 Mbits/sec
+[  3] 22.0-23.0 sec  96.9 MBytes   812 Mbits/sec
+[  3] 23.0-24.0 sec  96.4 MBytes   809 Mbits/sec
+[  3] 24.0-25.0 sec  95.7 MBytes   803 Mbits/sec
+[  3] 25.0-26.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 26.0-27.0 sec  95.5 MBytes   801 Mbits/sec
+[  3] 27.0-28.0 sec  96.2 MBytes   807 Mbits/sec
+[  3] 28.0-29.0 sec  96.9 MBytes   812 Mbits/sec
+[  3] 29.0-30.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   809 Mbits/sec
+[  3] Sent 2064886 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.82 GBytes   807 Mbits/sec   0.011 ms 5113/2064885 (0.25%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 48848 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  1.0- 2.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  2.0- 3.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  3.0- 4.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  4.0- 5.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  5.0- 6.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  6.0- 7.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  7.0- 8.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  8.0- 9.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  9.0-10.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 10.0-11.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 11.0-12.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 12.0-13.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 13.0-14.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 14.0-15.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 15.0-16.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 16.0-17.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 17.0-18.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 18.0-19.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 19.0-20.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 20.0-21.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 21.0-22.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 22.0-23.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 23.0-24.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 24.0-25.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 25.0-26.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 26.0-27.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 27.0-28.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 28.0-29.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 29.0-30.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec
+[  3] Sent 256411 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec   0.007 ms    2/256410 (0.00078%)
+[  3]  0.0-30.0 sec  3 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 53305 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  1.0- 2.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  2.0- 3.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  3.0- 4.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  4.0- 5.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  5.0- 6.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  6.0- 7.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  7.0- 8.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  8.0- 9.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  9.0-10.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 10.0-11.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 11.0-12.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 12.0-13.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 13.0-14.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 14.0-15.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 15.0-16.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 16.0-17.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 17.0-18.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 18.0-19.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 19.0-20.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 20.0-21.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 21.0-22.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 22.0-23.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 23.0-24.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 24.0-25.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 25.0-26.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 26.0-27.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 27.0-28.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 28.0-29.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 29.0-30.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec
+[  3] Sent 517195 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec   0.031 ms    0/517194 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 51791 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  1.0- 2.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  2.0- 3.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  3.0- 4.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  4.0- 5.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  5.0- 6.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  6.0- 7.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  7.0- 8.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  8.0- 9.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  9.0-10.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 10.0-11.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 11.0-12.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 12.0-13.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 13.0-14.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 14.0-15.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 15.0-16.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 16.0-17.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 17.0-18.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 18.0-19.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 19.0-20.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 20.0-21.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 21.0-22.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 22.0-23.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 23.0-24.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 24.0-25.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 25.0-26.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 26.0-27.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 27.0-28.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 28.0-29.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 29.0-30.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  0.0-30.0 sec  1.05 GBytes   301 Mbits/sec
+[  3] Sent 769132 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.05 GBytes   302 Mbits/sec   0.041 ms    0/769131 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 50714 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  1.0- 2.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  2.0- 3.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  3.0- 4.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  4.0- 5.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  5.0- 6.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  6.0- 7.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  7.0- 8.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  8.0- 9.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  9.0-10.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 10.0-11.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 11.0-12.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 12.0-13.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 13.0-14.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 14.0-15.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 15.0-16.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 16.0-17.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 17.0-18.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 18.0-19.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 19.0-20.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 20.0-21.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 21.0-22.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 22.0-23.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 23.0-24.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 24.0-25.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 25.0-26.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 26.0-27.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 27.0-28.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 28.0-29.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 29.0-30.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec
+[  3] Sent 1034328 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec   0.043 ms   14/1034327 (0.0014%)
+[  3]  0.0-30.0 sec  41 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 49464 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  59.0 MBytes   495 Mbits/sec
+[  3]  1.0- 2.0 sec  60.0 MBytes   503 Mbits/sec
+[  3]  2.0- 3.0 sec  59.6 MBytes   500 Mbits/sec
+[  3]  3.0- 4.0 sec  60.5 MBytes   508 Mbits/sec
+[  3]  4.0- 5.0 sec  60.3 MBytes   506 Mbits/sec
+[  3]  5.0- 6.0 sec  59.7 MBytes   500 Mbits/sec
+[  3]  6.0- 7.0 sec  60.6 MBytes   508 Mbits/sec
+[  3]  7.0- 8.0 sec  61.0 MBytes   511 Mbits/sec
+[  3]  8.0- 9.0 sec  60.2 MBytes   505 Mbits/sec
+[  3]  9.0-10.0 sec  60.6 MBytes   509 Mbits/sec
+[  3] 10.0-11.0 sec  59.2 MBytes   497 Mbits/sec
+[  3] 11.0-12.0 sec  60.1 MBytes   504 Mbits/sec
+[  3] 12.0-13.0 sec  60.7 MBytes   509 Mbits/sec
+[  3] 13.0-14.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 14.0-15.0 sec  60.6 MBytes   508 Mbits/sec
+[  3] 15.0-16.0 sec  60.3 MBytes   506 Mbits/sec
+[  3] 16.0-17.0 sec  60.6 MBytes   508 Mbits/sec
+[  3] 17.0-18.0 sec  60.1 MBytes   504 Mbits/sec
+[  3] 18.0-19.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 19.0-20.0 sec  60.6 MBytes   508 Mbits/sec
+[  3] 20.0-21.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 21.0-22.0 sec  60.3 MBytes   506 Mbits/sec
+[  3] 22.0-23.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 23.0-24.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 24.0-25.0 sec  60.6 MBytes   508 Mbits/sec
+[  3] 25.0-26.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 26.0-27.0 sec  60.7 MBytes   509 Mbits/sec
+[  3] 27.0-28.0 sec  60.3 MBytes   506 Mbits/sec
+[  3] 28.0-29.0 sec  60.2 MBytes   505 Mbits/sec
+[  3]  0.0-30.0 sec  1.77 GBytes   507 Mbits/sec
+[  3] Sent 1292324 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.77 GBytes   507 Mbits/sec   0.022 ms  190/1292323 (0.015%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 52335 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  72.0 MBytes   604 Mbits/sec
+[  3]  1.0- 2.0 sec  72.1 MBytes   605 Mbits/sec
+[  3]  2.0- 3.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  3.0- 4.0 sec  72.8 MBytes   611 Mbits/sec
+[  3]  4.0- 5.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  5.0- 6.0 sec  71.0 MBytes   595 Mbits/sec
+[  3]  6.0- 7.0 sec  73.7 MBytes   619 Mbits/sec
+[  3]  7.0- 8.0 sec  71.4 MBytes   599 Mbits/sec
+[  3]  8.0- 9.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  9.0-10.0 sec  72.8 MBytes   611 Mbits/sec
+[  3] 10.0-11.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 11.0-12.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 12.0-13.0 sec  72.6 MBytes   609 Mbits/sec
+[  3] 13.0-14.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 14.0-15.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 15.0-16.0 sec  71.4 MBytes   599 Mbits/sec
+[  3] 16.0-17.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 17.0-18.0 sec  72.5 MBytes   608 Mbits/sec
+[  3] 18.0-19.0 sec  72.7 MBytes   610 Mbits/sec
+[  3] 19.0-20.0 sec  71.1 MBytes   596 Mbits/sec
+[  3] 20.0-21.0 sec  72.8 MBytes   611 Mbits/sec
+[  3] 21.0-22.0 sec  69.8 MBytes   586 Mbits/sec
+[  3] 22.0-23.0 sec  72.3 MBytes   606 Mbits/sec
+[  3] 23.0-24.0 sec  71.1 MBytes   597 Mbits/sec
+[  3] 24.0-25.0 sec  72.2 MBytes   605 Mbits/sec
+[  3] 25.0-26.0 sec  71.0 MBytes   595 Mbits/sec
+[  3] 26.0-27.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 27.0-28.0 sec  71.2 MBytes   597 Mbits/sec
+[  3] 28.0-29.0 sec  72.4 MBytes   607 Mbits/sec
+[  3] 29.0-30.0 sec  72.6 MBytes   609 Mbits/sec
+[  3]  0.0-30.0 sec  2.12 GBytes   608 Mbits/sec
+[  3] Sent 1551888 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.12 GBytes   608 Mbits/sec   0.028 ms   43/1551887 (0.0028%)
+[  3]  0.0-30.0 sec  20 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 35943 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  83.6 MBytes   701 Mbits/sec
+[  3]  1.0- 2.0 sec  84.7 MBytes   711 Mbits/sec
+[  3]  2.0- 3.0 sec  86.7 MBytes   727 Mbits/sec
+[  3]  3.0- 4.0 sec  83.4 MBytes   699 Mbits/sec
+[  3]  4.0- 5.0 sec  87.4 MBytes   733 Mbits/sec
+[  3]  5.0- 6.0 sec  87.3 MBytes   732 Mbits/sec
+[  3]  6.0- 7.0 sec  82.9 MBytes   695 Mbits/sec
+[  3]  7.0- 8.0 sec  87.4 MBytes   733 Mbits/sec
+[  3]  8.0- 9.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  9.0-10.0 sec  84.5 MBytes   709 Mbits/sec
+[  3] 10.0-11.0 sec  84.1 MBytes   706 Mbits/sec
+[  3] 11.0-12.0 sec  83.8 MBytes   703 Mbits/sec
+[  3] 12.0-13.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 13.0-14.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 14.0-15.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 15.0-16.0 sec  85.0 MBytes   713 Mbits/sec
+[  3] 16.0-17.0 sec  87.0 MBytes   730 Mbits/sec
+[  3] 17.0-18.0 sec  84.2 MBytes   706 Mbits/sec
+[  3] 18.0-19.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 19.0-20.0 sec  84.3 MBytes   707 Mbits/sec
+[  3] 20.0-21.0 sec  84.3 MBytes   707 Mbits/sec
+[  3] 21.0-22.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 22.0-23.0 sec  84.9 MBytes   712 Mbits/sec
+[  3] 23.0-24.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 24.0-25.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 25.0-26.0 sec  85.0 MBytes   713 Mbits/sec
+[  3] 26.0-27.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 27.0-28.0 sec  86.8 MBytes   728 Mbits/sec
+[  3] 28.0-29.0 sec  84.9 MBytes   712 Mbits/sec
+[  3]  0.0-30.0 sec  2.52 GBytes   721 Mbits/sec
+[  3] Sent 1839001 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.52 GBytes   721 Mbits/sec   0.021 ms  394/1839000 (0.021%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 33517 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  81.9 MBytes   687 Mbits/sec
+[  3]  1.0- 2.0 sec  96.0 MBytes   806 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  97.0 MBytes   814 Mbits/sec
+[  3]  4.0- 5.0 sec  91.3 MBytes   766 Mbits/sec
+[  3]  5.0- 6.0 sec  83.6 MBytes   701 Mbits/sec
+[  3]  6.0- 7.0 sec  89.5 MBytes   750 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  9.0-10.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 10.0-11.0 sec  82.0 MBytes   688 Mbits/sec
+[  3] 11.0-12.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 12.0-13.0 sec  93.2 MBytes   781 Mbits/sec
+[  3] 13.0-14.0 sec  88.2 MBytes   740 Mbits/sec
+[  3] 14.0-15.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 15.0-16.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 16.0-17.0 sec  92.8 MBytes   778 Mbits/sec
+[  3] 17.0-18.0 sec  89.3 MBytes   750 Mbits/sec
+[  3] 18.0-19.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 19.0-20.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 20.0-21.0 sec  97.0 MBytes   813 Mbits/sec
+[  3] 21.0-22.0 sec  83.4 MBytes   699 Mbits/sec
+[  3] 22.0-23.0 sec  96.5 MBytes   810 Mbits/sec
+[  3] 23.0-24.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 24.0-25.0 sec  91.1 MBytes   764 Mbits/sec
+[  3] 25.0-26.0 sec  88.1 MBytes   739 Mbits/sec
+[  3] 26.0-27.0 sec  86.4 MBytes   724 Mbits/sec
+[  3] 27.0-28.0 sec  88.5 MBytes   743 Mbits/sec
+[  3] 28.0-29.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 29.0-30.0 sec  93.0 MBytes   780 Mbits/sec
+[  3]  0.0-30.0 sec  2.71 GBytes   776 Mbits/sec
+[  3] Sent 1979414 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.70 GBytes   774 Mbits/sec   0.029 ms 4636/1979413 (0.23%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 35489 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  85.3 MBytes   716 Mbits/sec
+[  3]  1.0- 2.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  95.8 MBytes   804 Mbits/sec
+[  3]  4.0- 5.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  5.0- 6.0 sec  90.7 MBytes   761 Mbits/sec
+[  3]  6.0- 7.0 sec  93.5 MBytes   784 Mbits/sec
+[  3]  7.0- 8.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  8.0- 9.0 sec  96.6 MBytes   810 Mbits/sec
+[  3]  9.0-10.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 10.0-11.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 11.0-12.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 12.0-13.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 13.0-14.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 14.0-15.0 sec  95.4 MBytes   801 Mbits/sec
+[  3] 15.0-16.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 16.0-17.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 17.0-18.0 sec  96.9 MBytes   812 Mbits/sec
+[  3] 18.0-19.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 19.0-20.0 sec  95.7 MBytes   802 Mbits/sec
+[  3] 20.0-21.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 21.0-22.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 22.0-23.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 23.0-24.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 24.0-25.0 sec  85.4 MBytes   716 Mbits/sec
+[  3] 25.0-26.0 sec  89.7 MBytes   753 Mbits/sec
+[  3] 26.0-27.0 sec  92.6 MBytes   777 Mbits/sec
+[  3] 27.0-28.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 28.0-29.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 29.0-30.0 sec  84.9 MBytes   712 Mbits/sec
+[  3]  0.0-30.0 sec  2.78 GBytes   795 Mbits/sec
+[  3] Sent 2029250 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.77 GBytes   794 Mbits/sec   0.025 ms 2535/2029249 (0.12%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.1.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 59717 connected with 14.1.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  81.5 MBytes   684 Mbits/sec
+[  3]  1.0- 2.0 sec  96.2 MBytes   807 Mbits/sec
+[  3]  2.0- 3.0 sec  88.7 MBytes   744 Mbits/sec
+[  3]  3.0- 4.0 sec  95.0 MBytes   797 Mbits/sec
+[  3]  4.0- 5.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  5.0- 6.0 sec  95.2 MBytes   798 Mbits/sec
+[  3]  6.0- 7.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  91.4 MBytes   766 Mbits/sec
+[  3]  9.0-10.0 sec  91.4 MBytes   767 Mbits/sec
+[  3] 10.0-11.0 sec  95.6 MBytes   802 Mbits/sec
+[  3] 11.0-12.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 12.0-13.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 13.0-14.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 14.0-15.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 15.0-16.0 sec  95.9 MBytes   804 Mbits/sec
+[  3] 16.0-17.0 sec  88.1 MBytes   739 Mbits/sec
+[  3] 17.0-18.0 sec  94.0 MBytes   788 Mbits/sec
+[  3] 18.0-19.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 19.0-20.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 20.0-21.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 21.0-22.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 22.0-23.0 sec  96.4 MBytes   809 Mbits/sec
+[  3] 23.0-24.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 24.0-25.0 sec  96.7 MBytes   811 Mbits/sec
+[  3] 25.0-26.0 sec  96.5 MBytes   810 Mbits/sec
+[  3] 26.0-27.0 sec  95.7 MBytes   803 Mbits/sec
+[  3] 27.0-28.0 sec  87.2 MBytes   731 Mbits/sec
+[  3] 28.0-29.0 sec  89.7 MBytes   752 Mbits/sec
+[  3]  0.0-30.0 sec  2.76 GBytes   790 Mbits/sec
+[  3] Sent 2016355 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.76 GBytes   789 Mbits/sec   0.011 ms 2422/2016354 (0.12%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 45465 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  1.0- 2.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  2.0- 3.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  3.0- 4.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  4.0- 5.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  5.0- 6.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  6.0- 7.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  7.0- 8.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  8.0- 9.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  9.0-10.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 10.0-11.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 11.0-12.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 12.0-13.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 13.0-14.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 14.0-15.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 15.0-16.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 16.0-17.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 17.0-18.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 18.0-19.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 19.0-20.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 20.0-21.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 21.0-22.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 22.0-23.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 23.0-24.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 24.0-25.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 25.0-26.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 26.0-27.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 27.0-28.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 28.0-29.0 sec  12.0 MBytes   101 Mbits/sec
+[  3] 29.0-30.0 sec  12.0 MBytes   101 Mbits/sec
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec
+[  3] Sent 256411 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   359 MBytes   101 Mbits/sec   0.001 ms    0/256410 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 42834 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  1.0- 2.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  2.0- 3.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  3.0- 4.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  4.0- 5.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  5.0- 6.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  6.0- 7.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  7.0- 8.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  8.0- 9.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  9.0-10.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 10.0-11.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 11.0-12.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 12.0-13.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 13.0-14.0 sec  24.1 MBytes   203 Mbits/sec
+[  3] 14.0-15.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 15.0-16.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 16.0-17.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 17.0-18.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 18.0-19.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 19.0-20.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 20.0-21.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 21.0-22.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 22.0-23.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 23.0-24.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 24.0-25.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 25.0-26.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 26.0-27.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 27.0-28.0 sec  24.2 MBytes   203 Mbits/sec
+[  3] 28.0-29.0 sec  24.2 MBytes   203 Mbits/sec
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec
+[  3] Sent 517182 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec   725 MBytes   203 Mbits/sec   0.010 ms    0/517181 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 58038 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  1.0- 2.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  2.0- 3.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  3.0- 4.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  4.0- 5.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  5.0- 6.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  6.0- 7.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  7.0- 8.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  8.0- 9.0 sec  35.9 MBytes   302 Mbits/sec
+[  3]  9.0-10.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 10.0-11.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 11.0-12.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 12.0-13.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 13.0-14.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 14.0-15.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 15.0-16.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 16.0-17.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 17.0-18.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 18.0-19.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 19.0-20.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 20.0-21.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 21.0-22.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 22.0-23.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 23.0-24.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 24.0-25.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 25.0-26.0 sec  35.9 MBytes   301 Mbits/sec
+[  3] 26.0-27.0 sec  34.9 MBytes   293 Mbits/sec
+[  3] 27.0-28.0 sec  35.9 MBytes   302 Mbits/sec
+[  3] 28.0-29.0 sec  35.9 MBytes   301 Mbits/sec
+[  3]  0.0-30.0 sec  1.05 GBytes   301 Mbits/sec
+[  3] Sent 768346 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.05 GBytes   301 Mbits/sec   0.013 ms    0/768345 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 58822 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  1.0- 2.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  2.0- 3.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  3.0- 4.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  4.0- 5.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  5.0- 6.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  6.0- 7.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  7.0- 8.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  8.0- 9.0 sec  48.3 MBytes   406 Mbits/sec
+[  3]  9.0-10.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 10.0-11.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 11.0-12.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 12.0-13.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 13.0-14.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 14.0-15.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 15.0-16.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 16.0-17.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 17.0-18.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 18.0-19.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 19.0-20.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 20.0-21.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 21.0-22.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 22.0-23.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 23.0-24.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 24.0-25.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 25.0-26.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 26.0-27.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 27.0-28.0 sec  48.3 MBytes   405 Mbits/sec
+[  3] 28.0-29.0 sec  48.3 MBytes   406 Mbits/sec
+[  3] 29.0-30.0 sec  48.3 MBytes   405 Mbits/sec
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec
+[  3] Sent 1034236 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.42 GBytes   405 Mbits/sec   0.014 ms    0/1034235 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 35818 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  1.0- 2.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  2.0- 3.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  3.0- 4.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  4.0- 5.0 sec  61.0 MBytes   511 Mbits/sec
+[  3]  5.0- 6.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  6.0- 7.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  7.0- 8.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  8.0- 9.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  9.0-10.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 10.0-11.0 sec  60.8 MBytes   510 Mbits/sec
+[  3] 11.0-12.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 12.0-13.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 13.0-14.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 14.0-15.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 15.0-16.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 16.0-17.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 17.0-18.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 18.0-19.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 19.0-20.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 20.0-21.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 21.0-22.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 22.0-23.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 23.0-24.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 24.0-25.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 25.0-26.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 26.0-27.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 27.0-28.0 sec  60.9 MBytes   511 Mbits/sec
+[  3] 28.0-29.0 sec  61.0 MBytes   511 Mbits/sec
+[  3] 29.0-30.0 sec  60.9 MBytes   511 Mbits/sec
+[  3]  0.0-30.0 sec  1.79 GBytes   511 Mbits/sec
+[  3] Sent 1303933 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  1.79 GBytes   511 Mbits/sec   0.013 ms    0/1303932 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 41456 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  1.0- 2.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  2.0- 3.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  3.0- 4.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  4.0- 5.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  5.0- 6.0 sec  72.4 MBytes   608 Mbits/sec
+[  3]  6.0- 7.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  7.0- 8.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  8.0- 9.0 sec  73.8 MBytes   619 Mbits/sec
+[  3]  9.0-10.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 10.0-11.0 sec  73.2 MBytes   614 Mbits/sec
+[  3] 11.0-12.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 12.0-13.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 13.0-14.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 14.0-15.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 15.0-16.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 16.0-17.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 17.0-18.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 18.0-19.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 19.0-20.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 20.0-21.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 21.0-22.0 sec  73.6 MBytes   617 Mbits/sec
+[  3] 22.0-23.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 23.0-24.0 sec  73.8 MBytes   619 Mbits/sec
+[  3] 24.0-25.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 25.0-26.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 26.0-27.0 sec  73.7 MBytes   619 Mbits/sec
+[  3] 27.0-28.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 28.0-29.0 sec  73.7 MBytes   618 Mbits/sec
+[  3] 29.0-30.0 sec  73.7 MBytes   618 Mbits/sec
+[  3]  0.0-30.0 sec  2.16 GBytes   618 Mbits/sec
+[  3] Sent 1576704 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.16 GBytes   618 Mbits/sec   0.014 ms    1/1576703 (6.3e-05%)
+[  3]  0.0-30.0 sec  2 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 34117 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  1.0- 2.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  2.0- 3.0 sec  87.6 MBytes   734 Mbits/sec
+[  3]  3.0- 4.0 sec  87.5 MBytes   734 Mbits/sec
+[  3]  4.0- 5.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  5.0- 6.0 sec  87.1 MBytes   731 Mbits/sec
+[  3]  6.0- 7.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  7.0- 8.0 sec  87.6 MBytes   735 Mbits/sec
+[  3]  8.0- 9.0 sec  87.6 MBytes   734 Mbits/sec
+[  3]  9.0-10.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 10.0-11.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 11.0-12.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 12.0-13.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 13.0-14.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 14.0-15.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 15.0-16.0 sec  87.6 MBytes   734 Mbits/sec
+[  3] 16.0-17.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 17.0-18.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 18.0-19.0 sec  87.5 MBytes   734 Mbits/sec
+[  3] 19.0-20.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 20.0-21.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 21.0-22.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 22.0-23.0 sec  87.1 MBytes   731 Mbits/sec
+[  3] 23.0-24.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 24.0-25.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 25.0-26.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 26.0-27.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 27.0-28.0 sec  87.6 MBytes   735 Mbits/sec
+[  3] 28.0-29.0 sec  87.5 MBytes   734 Mbits/sec
+[  3]  0.0-30.0 sec  2.56 GBytes   734 Mbits/sec
+[  3] Sent 1873161 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.56 GBytes   734 Mbits/sec   0.002 ms    0/1873160 (0%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 49685 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  96.9 MBytes   812 Mbits/sec
+[  3]  1.0- 2.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  4.0- 5.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  5.0- 6.0 sec  96.1 MBytes   806 Mbits/sec
+[  3]  6.0- 7.0 sec  97.0 MBytes   813 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  9.0-10.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 10.0-11.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 11.0-12.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 12.0-13.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 13.0-14.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 14.0-15.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 15.0-16.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 16.0-17.0 sec  95.9 MBytes   804 Mbits/sec
+[  3] 17.0-18.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 18.0-19.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 19.0-20.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 20.0-21.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 21.0-22.0 sec  96.1 MBytes   806 Mbits/sec
+[  3] 22.0-23.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 23.0-24.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 24.0-25.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 25.0-26.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 26.0-27.0 sec  97.0 MBytes   814 Mbits/sec
+[  3] 27.0-28.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 28.0-29.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 29.0-30.0 sec  97.0 MBytes   813 Mbits/sec
+[  3]  0.0-30.0 sec  2.84 GBytes   812 Mbits/sec
+[  3] Sent 2072023 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.84 GBytes   812 Mbits/sec   0.005 ms  986/2072022 (0.048%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 60145 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  1.0- 2.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  4.0- 5.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  5.0- 6.0 sec  96.0 MBytes   805 Mbits/sec
+[  3]  6.0- 7.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  9.0-10.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 10.0-11.0 sec  96.2 MBytes   807 Mbits/sec
+[  3] 11.0-12.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 12.0-13.0 sec  96.9 MBytes   812 Mbits/sec
+[  3] 13.0-14.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 14.0-15.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 15.0-16.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 16.0-17.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 17.0-18.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 18.0-19.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 19.0-20.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 20.0-21.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 21.0-22.0 sec  95.6 MBytes   802 Mbits/sec
+[  3] 22.0-23.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 23.0-24.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 24.0-25.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 25.0-26.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 26.0-27.0 sec  95.2 MBytes   799 Mbits/sec
+[  3] 27.0-28.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 28.0-29.0 sec  96.7 MBytes   812 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   811 Mbits/sec
+[  3] Sent 2069523 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.82 GBytes   808 Mbits/sec   0.009 ms 8239/2069522 (0.4%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 14.0.0.17, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 14.0.0.21 port 55452 connected with 14.0.0.17 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  1.0- 2.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  2.0- 3.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  3.0- 4.0 sec  97.0 MBytes   813 Mbits/sec
+[  3]  4.0- 5.0 sec  96.8 MBytes   812 Mbits/sec
+[  3]  5.0- 6.0 sec  95.6 MBytes   802 Mbits/sec
+[  3]  6.0- 7.0 sec  96.7 MBytes   811 Mbits/sec
+[  3]  7.0- 8.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  8.0- 9.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  9.0-10.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 10.0-11.0 sec  96.9 MBytes   812 Mbits/sec
+[  3] 11.0-12.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 12.0-13.0 sec  96.9 MBytes   812 Mbits/sec
+[  3] 13.0-14.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 14.0-15.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 15.0-16.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 16.0-17.0 sec  95.3 MBytes   800 Mbits/sec
+[  3] 17.0-18.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 18.0-19.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 19.0-20.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 20.0-21.0 sec  97.0 MBytes   813 Mbits/sec
+[  3] 21.0-22.0 sec  96.1 MBytes   806 Mbits/sec
+[  3] 22.0-23.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 23.0-24.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 24.0-25.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 25.0-26.0 sec  96.8 MBytes   812 Mbits/sec
+[  3] 26.0-27.0 sec  95.6 MBytes   802 Mbits/sec
+[  3] 27.0-28.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 28.0-29.0 sec  96.9 MBytes   813 Mbits/sec
+[  3] 29.0-30.0 sec  96.9 MBytes   813 Mbits/sec
+[  3]  0.0-30.0 sec  2.83 GBytes   811 Mbits/sec
+[  3] Sent 2069572 datagrams
+[  3] Server Report:
+[  3]  0.0-30.0 sec  2.82 GBytes   807 Mbits/sec   0.008 ms 11196/2069571 (0.54%)
+[  3]  0.0-30.0 sec  1 datagrams received out-of-order

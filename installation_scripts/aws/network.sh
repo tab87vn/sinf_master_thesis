@@ -73,9 +73,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 # sudo scp ubuntu@controller:/etc/ssl/certs/ca.pem /etc/ssl/certs/ca.pem
 sudo c_rehash /etc/ssl/certs/ca.pem
 
-##########################
-# Chapter 3 - Networking #
-##########################
 
 echo "net.ipv4.ip_forward=1
 net.ipv4.conf.all.rp_filter=0
@@ -312,12 +309,6 @@ sudo service neutron-metadata-agent restart
 #sudo service neutron-vpn-agent start
 
 cat  ${INSTALL_DIR}/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
-
-# Logging
-# sudo stop rsyslog
-# sudo cp ${INSTALL_DIR}/rsyslog.conf /etc/rsyslog.conf
-# sudo echo "*.*         @@controller:5140" >> /etc/rsyslog.d/50-default.conf
-# sudo service rsyslog restart
 
 # Copy openrc file to local instance vagrant root folder in case of loss of file share
 sudo cp ${INSTALL_DIR}/openrc ${HOME_DIR} 

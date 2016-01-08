@@ -101,14 +101,6 @@ mysql -u root -p${MYSQL_ROOT_PASS} -h localhost -e "GRANT ALL ON *.* to root@\"%
 mysqladmin -uroot -p${MYSQL_ROOT_PASS} flush-privileges
 
 
-
-
-
-
-######################
-# Chapter 1 KEYSTONE #
-######################
-
 # Create database
 sudo apt-get -y install ntp keystone python-keyring
 
@@ -133,15 +125,6 @@ sudo apt-get -y install python-keystoneclient
 
 sudo keystone-manage ssl_setup --keystone-user keystone --keystone-group keystone
 echo "
-#[signing]
-#certfile=/etc/keystone/ssl/certs/signing_cert.pem
-#keyfile=/etc/keystone/ssl/private/signing_key.pem
-#ca_certs=/etc/keystone/ssl/certs/ca.pem
-#ca_key=/etc/keystone/ssl/private/cakey.pem
-#key_size=2048
-#valid_days=3650
-#cert_subject=/C=US/ST=Unset/L=Unset/O=Unset/CN=172.16.0.200
-
 [ssl]
 enable = True
 certfile = /etc/keystone/ssl/certs/keystone.pem
@@ -159,192 +142,187 @@ sudo cp /etc/keystone/ssl/certs/ca.pem ${INSTALL_DIR}/ca.pem
 sudo cp /etc/keystone/ssl/certs/cakey.pem ${INSTALL_DIR}/cakey.pem
 
 
-  echo "[+] INSTALLING KEYSTONE"
-  sudo stop keystone
-  sudo start keystone
-  sudo keystone-manage db_sync
+echo "[+] INSTALLING KEYSTONE"
+sudo stop keystone
+sudo start keystone
+sudo keystone-manage db_sync
 
-  export ENDPOINT=${PUBLIC_IP}
-  export INT_ENDPOINT=${INT_IP}
-  export ADMIN_ENDPOINT=${ADMIN_IP}
-  export SERVICE_TOKEN=ADMIN
-  export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
-  export PASSWORD=openstack
+export ENDPOINT=${PUBLIC_IP}
+export INT_ENDPOINT=${INT_IP}
+export ADMIN_ENDPOINT=${ADMIN_IP}
+export SERVICE_TOKEN=ADMIN
+export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
+export PASSWORD=openstack
 
-  # admin role
-  keystone  role-create --name admin
+# admin role
+keystonerole-create --name admin
 
-  # Member role
-  keystone  role-create --name Member
+# Member role
+keystonerole-create --name Member
 
-  keystone  role-list
+keystonerole-list
 
-  keystone  tenant-create --name ostest --description "Default ostest Tenant" --enabled true
+keystonetenant-create --name ostest --description "Default ostest Tenant" --enabled true
 
-  TENANT_ID=$(keystone  tenant-list | awk '/\ ostest\ / {print $2}')
+TENANT_ID=$(keystonetenant-list | awk '/\ ostest\ / {print $2}')
 
-  keystone  user-create --name admin --tenant_id $TENANT_ID --pass $PASSWORD --email root@localhost --enabled true
+keystoneuser-create --name admin --tenant_id $TENANT_ID --pass $PASSWORD --email root@localhost --enabled true
 
-  TENANT_ID=$(keystone  tenant-list | awk '/\ ostest\ / {print $2}')
+TENANT_ID=$(keystonetenant-list | awk '/\ ostest\ / {print $2}')
 
-  ROLE_ID=$(keystone  role-list | awk '/\ admin\ / {print $2}')
+ROLE_ID=$(keystonerole-list | awk '/\ admin\ / {print $2}')
 
-  USER_ID=$(keystone  user-list | awk '/\ admin\ / {print $2}')
+USER_ID=$(keystoneuser-list | awk '/\ admin\ / {print $2}')
 
-  keystone  user-role-add --user $USER_ID --role $ROLE_ID --tenant_id $TENANT_ID
+keystoneuser-role-add --user $USER_ID --role $ROLE_ID --tenant_id $TENANT_ID
 
-  # Create the user
-  PASSWORD=openstack
-  keystone  user-create --name demo --tenant_id $TENANT_ID --pass $PASSWORD --email demo@localhost --enabled true
+# Create the user
+PASSWORD=openstack
+keystoneuser-create --name demo --tenant_id $TENANT_ID --pass $PASSWORD --email demo@localhost --enabled true
 
-  TENANT_ID=$(keystone  tenant-list | awk '/\ ostest\ / {print $2}')
+TENANT_ID=$(keystonetenant-list | awk '/\ ostest\ / {print $2}')
 
-  ROLE_ID=$(keystone  role-list | awk '/\ Member\ / {print $2}')
+ROLE_ID=$(keystonerole-list | awk '/\ Member\ / {print $2}')
 
-  USER_ID=$(keystone  user-list | awk '/\ demo\ / {print $2}')
+USER_ID=$(keystoneuser-list | awk '/\ demo\ / {print $2}')
 
-  # Assign the Member role to the demo user in ostest
-  keystone  user-role-add --user $USER_ID --role $ROLE_ID --tenant_id $TENANT_ID
+# Assign the Member role to the demo user in ostest
+keystoneuser-role-add --user $USER_ID --role $ROLE_ID --tenant_id $TENANT_ID
 
-#  create_endpoints
+#create_endpoints
 
-  export ENDPOINT=${PUBLIC_IP}
-  export INT_ENDPOINT=${INT_IP}
-  export ADMIN_ENDPOINT=${ADMIN_IP}
-  export SERVICE_TOKEN=ADMIN
-  export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
-  export PASSWORD=openstack
-  export OS_CACERT=${INSTALL_DIR}/ca.pem
-  export OS_KEY=${INSTALL_DIR}/cakey.pem
+export ENDPOINT=${PUBLIC_IP}
+export INT_ENDPOINT=${INT_IP}
+export ADMIN_ENDPOINT=${ADMIN_IP}
+export SERVICE_TOKEN=ADMIN
+export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
+export PASSWORD=openstack
+export OS_CACERT=${INSTALL_DIR}/ca.pem
+export OS_KEY=${INSTALL_DIR}/cakey.pem
 
-   # OpenStack Compute Nova API Endpoint
-  keystone  service-create --name nova --type compute --description 'OpenStack Compute Service'
+ # OpenStack Compute Nova API Endpoint
+keystoneservice-create --name nova --type compute --description 'OpenStack Compute Service'
 
-  # OpenStack Compute EC2 API Endpoint
-  keystone  service-create --name ec2 --type ec2 --description 'EC2 Service'
+# OpenStack Compute EC2 API Endpoint
+keystoneservice-create --name ec2 --type ec2 --description 'EC2 Service'
 
-  # Glance Image Service Endpoint
-  keystone  service-create --name glance --type image --description 'OpenStack Image Service'
+# Glance Image Service Endpoint
+keystoneservice-create --name glance --type image --description 'OpenStack Image Service'
 
-  # Keystone Identity Service Endpoint
-  keystone  service-create --name keystone --type identity --description 'OpenStack Identity Service'
+# Keystone Identity Service Endpoint
+keystoneservice-create --name keystone --type identity --description 'OpenStack Identity Service'
 
-  # Cinder Block Storage Endpoint
-  keystone  service-create --name volume --type volume --description 'Volume Service'
+# Cinder Block Storage Endpoint
+keystoneservice-create --name volume --type volume --description 'Volume Service'
 
-  # Neutron Network Service Endpoint
-  keystone  service-create --name network --type network --description 'Neutron Network Service'
+# Neutron Network Service Endpoint
+keystoneservice-create --name network --type network --description 'Neutron Network Service'
 
-  # OpenStack Compute Nova API
-  NOVA_SERVICE_ID=$(keystone  service-list | awk '/\ nova\ / {print $2}')
+# OpenStack Compute Nova API
+NOVA_SERVICE_ID=$(keystoneservice-list | awk '/\ nova\ / {print $2}')
 
-  PUBLIC="http://$ENDPOINT:8774/v2/\$(tenant_id)s"
-  ADMIN="http://$ADMIN_ENDPOINT:8774/v2/\$(tenant_id)s"
-  INTERNAL="http://$INT_ENDPOINT:8774/v2/\$(tenant_id)s"
+PUBLIC="http://$ENDPOINT:8774/v2/\$(tenant_id)s"
+ADMIN="http://$ADMIN_ENDPOINT:8774/v2/\$(tenant_id)s"
+INTERNAL="http://$INT_ENDPOINT:8774/v2/\$(tenant_id)s"
 
-  keystone  endpoint-create --region regionOne --service_id $NOVA_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+keystoneendpoint-create --region regionOne --service_id $NOVA_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
 
-  # OpenStack Compute EC2 API
-  EC2_SERVICE_ID=$(keystone  service-list | awk '/\ ec2\ / {print $2}')
+# OpenStack Compute EC2 API
+EC2_SERVICE_ID=$(keystoneservice-list | awk '/\ ec2\ / {print $2}')
 
-  PUBLIC="http://$ENDPOINT:8773/services/Cloud"
-  ADMIN="http://$ADMIN_ENDPOINT:8773/services/Admin"
-  INTERNAL="http://$INT_ENDPOINT:8773/services/Cloud"
+PUBLIC="http://$ENDPOINT:8773/services/Cloud"
+ADMIN="http://$ADMIN_ENDPOINT:8773/services/Admin"
+INTERNAL="http://$INT_ENDPOINT:8773/services/Cloud"
 
-  keystone  endpoint-create --region regionOne --service_id $EC2_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+keystoneendpoint-create --region regionOne --service_id $EC2_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
 
-  # Glance Image Service
-  GLANCE_SERVICE_ID=$(keystone  service-list | awk '/\ glance\ / {print $2}')
+# Glance Image Service
+GLANCE_SERVICE_ID=$(keystoneservice-list | awk '/\ glance\ / {print $2}')
 
-  PUBLIC="http://$ENDPOINT:9292/v2"
-  ADMIN="http://$ADMIN_ENDPOINT:9292/v2"
-  INTERNAL="http://$INT_ENDPOINT:9292/v2"
+PUBLIC="http://$ENDPOINT:9292/v2"
+ADMIN="http://$ADMIN_ENDPOINT:9292/v2"
+INTERNAL="http://$INT_ENDPOINT:9292/v2"
 
-  keystone  endpoint-create --region regionOne --service_id $GLANCE_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+keystoneendpoint-create --region regionOne --service_id $GLANCE_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
 
-  # Keystone OpenStack Identity Service
-  KEYSTONE_SERVICE_ID=$(keystone  service-list | awk '/\ keystone\ / {print $2}')
+# Keystone OpenStack Identity Service
+KEYSTONE_SERVICE_ID=$(keystoneservice-list | awk '/\ keystone\ / {print $2}')
 
-  PUBLIC="https://$ENDPOINT:5000/v2.0"
-  ADMIN="https://$ADMIN_ENDPOINT:35357/v2.0"
-  INTERNAL="https://$INT_ENDPOINT:5000/v2.0"
+PUBLIC="https://$ENDPOINT:5000/v2.0"
+ADMIN="https://$ADMIN_ENDPOINT:35357/v2.0"
+INTERNAL="https://$INT_ENDPOINT:5000/v2.0"
 
-  keystone  endpoint-create --region regionOne --service_id $KEYSTONE_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+keystoneendpoint-create --region regionOne --service_id $KEYSTONE_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
 
-  # Cinder Block Storage Service
-  CINDER_SERVICE_ID=$(keystone  service-list | awk '/\ volume\ / {print $2}')
+# Cinder Block Storage Service
+CINDER_SERVICE_ID=$(keystoneservice-list | awk '/\ volume\ / {print $2}')
 
-  #Dynamically determine first three octets if user specifies alternative IP ranges.  Fourth octet still hardcoded
-  CINDER_ENDPOINT=${CONTROLLER_HOST}
-  PUBLIC="http://$CINDER_ENDPOINT:8776/v1/%(tenant_id)s"
-  ADMIN=$PUBLIC
-  INTERNAL=$PUBLIC
+#Dynamically determine first three octets if user specifies alternative IP ranges.Fourth octet still hardcoded
+CINDER_ENDPOINT=${CONTROLLER_HOST}
+PUBLIC="http://$CINDER_ENDPOINT:8776/v1/%(tenant_id)s"
+ADMIN=$PUBLIC
+INTERNAL=$PUBLIC
 
-  keystone  endpoint-create --region regionOne --service_id $CINDER_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+keystoneendpoint-create --region regionOne --service_id $CINDER_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
 
-  # Neutron Network Service
-  NEUTRON_SERVICE_ID=$(keystone  service-list | awk '/\ network\ / {print $2}')
+# Neutron Network Service
+NEUTRON_SERVICE_ID=$(keystoneservice-list | awk '/\ network\ / {print $2}')
 
-  PUBLIC="http://$ENDPOINT:9696"
-  ADMIN="http://$ADMIN_ENDPOINT:9696"
-  INTERNAL="http://$INT_ENDPOINT:9696"
+PUBLIC="http://$ENDPOINT:9696"
+ADMIN="http://$ADMIN_ENDPOINT:9696"
+INTERNAL="http://$INT_ENDPOINT:9696"
 
-  keystone  endpoint-create --region regionOne --service_id $NEUTRON_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+keystoneendpoint-create --region regionOne --service_id $NEUTRON_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
 
 
-  # Service Tenant
-  keystone  tenant-create --name service --description "Service Tenant" --enabled true
+# Service Tenant
+keystonetenant-create --name service --description "Service Tenant" --enabled true
 
-  SERVICE_TENANT_ID=$(keystone  tenant-list | awk '/\ service\ / {print $2}')
+SERVICE_TENANT_ID=$(keystonetenant-list | awk '/\ service\ / {print $2}')
 
-  keystone  user-create --name nova --pass nova --tenant_id $SERVICE_TENANT_ID --email nova@localhost --enabled true
+keystoneuser-create --name nova --pass nova --tenant_id $SERVICE_TENANT_ID --email nova@localhost --enabled true
 
-  keystone  user-create --name glance --pass glance --tenant_id $SERVICE_TENANT_ID --email glance@localhost --enabled true
+keystoneuser-create --name glance --pass glance --tenant_id $SERVICE_TENANT_ID --email glance@localhost --enabled true
 
-  keystone  user-create --name keystone --pass keystone --tenant_id $SERVICE_TENANT_ID --email keystone@localhost --enabled true
+keystoneuser-create --name keystone --pass keystone --tenant_id $SERVICE_TENANT_ID --email keystone@localhost --enabled true
 
-  keystone  user-create --name cinder --pass cinder --tenant_id $SERVICE_TENANT_ID --email cinder@localhost --enabled true
+keystoneuser-create --name cinder --pass cinder --tenant_id $SERVICE_TENANT_ID --email cinder@localhost --enabled true
 
-  keystone  user-create --name neutron --pass neutron --tenant_id $SERVICE_TENANT_ID --email neutron@localhost --enabled true
+keystoneuser-create --name neutron --pass neutron --tenant_id $SERVICE_TENANT_ID --email neutron@localhost --enabled true
 
-  # Get the nova user id
-  NOVA_USER_ID=$(keystone  user-list | awk '/\ nova\ / {print $2}')
+# Get the nova user id
+NOVA_USER_ID=$(keystoneuser-list | awk '/\ nova\ / {print $2}')
 
-  # Get the admin role id
-  ADMIN_ROLE_ID=$(keystone  role-list | awk '/\ admin\ / {print $2}')
+# Get the admin role id
+ADMIN_ROLE_ID=$(keystonerole-list | awk '/\ admin\ / {print $2}')
 
-  # Assign the nova user the admin role in service tenant
-  keystone  user-role-add --user $NOVA_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+# Assign the nova user the admin role in service tenant
+keystoneuser-role-add --user $NOVA_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
 
-  # Get the glance user id
-  GLANCE_USER_ID=$(keystone  user-list | awk '/\ glance\ / {print $2}')
+# Get the glance user id
+GLANCE_USER_ID=$(keystoneuser-list | awk '/\ glance\ / {print $2}')
 
-  # Assign the glance user the admin role in service tenant
-  keystone  user-role-add --user $GLANCE_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+# Assign the glance user the admin role in service tenant
+keystoneuser-role-add --user $GLANCE_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
 
-  # Get the keystone user id
-  KEYSTONE_USER_ID=$(keystone  user-list | awk '/\ keystone\ / {print $2}')
+# Get the keystone user id
+KEYSTONE_USER_ID=$(keystoneuser-list | awk '/\ keystone\ / {print $2}')
 
-  # Assign the keystone user the admin role in service tenant
-  keystone  user-role-add --user $KEYSTONE_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+# Assign the keystone user the admin role in service tenant
+keystoneuser-role-add --user $KEYSTONE_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
 
-  # Get the cinder user id
-  CINDER_USER_ID=$(keystone  user-list | awk '/\ cinder \ / {print $2}')
+# Get the cinder user id
+CINDER_USER_ID=$(keystoneuser-list | awk '/\ cinder \ / {print $2}')
 
-  # Assign the cinder user the admin role in service tenant
-  keystone  user-role-add --user $CINDER_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+# Assign the cinder user the admin role in service tenant
+keystoneuser-role-add --user $CINDER_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
 
-  # Create neutron service user in the services tenant
-  NEUTRON_USER_ID=$(keystone  user-list | awk '/\ neutron \ / {print $2}')
+# Create neutron service user in the services tenant
+NEUTRON_USER_ID=$(keystoneuser-list | awk '/\ neutron \ / {print $2}')
 
-  # Grant admin role to neutron service user
-  keystone  user-role-add --user $NEUTRON_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+# Grant admin role to neutron service user
+keystoneuser-role-add --user $NEUTRON_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
 
-
-
-######################
-# Chapter 2 GLANCE   #
-######################
 
 # Install Service
 sudo apt-get update
@@ -480,34 +458,24 @@ UBUNTU="trusty-server-cloudimg-amd64-disk1.img"
 
 if [[ ! -f ${INSTALL_DIR}/${CIRROS} ]]
 then
-        # Download then store on local host for next time
+# Download then store on local host for next time
 	wget --quiet https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img -O ${INSTALL_DIR}/${CIRROS}
 fi
 
 if [[ ! -f ${INSTALL_DIR}/${UBUNTU} ]]
 then
-        # Download then store on local host for next time
+# Download then store on local host for next time
 	wget --quiet http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img -O ${INSTALL_DIR}/${UBUNTU}
 fi
 
-# Warning: using  due to self-signed cert
-glance  image-create --name='trusty-image' --disk-format=qcow2 --container-format=bare --public < ${INSTALL_DIR}/${UBUNTU}
-glance  image-create --name='cirros-image' --disk-format=qcow2 --container-format=bare --public < ${INSTALL_DIR}/${CIRROS}
+# Warning: usingdue to self-signed cert
+glanceimage-create --name='trusty-image' --disk-format=qcow2 --container-format=bare --public < ${INSTALL_DIR}/${UBUNTU}
+glanceimage-create --name='cirros-image' --disk-format=qcow2 --container-format=bare --public < ${INSTALL_DIR}/${CIRROS}
 
-# glance  image-create --name='cirros-image' --disk-format=qcow2 --container-format=bare --public < /home/ubuntu/junoscript/cirros-0.3.0-x86_64-disk.img
+# glanceimage-create --name='cirros-image' --disk-format=qcow2 --container-format=bare --public < /home/ubuntu/junoscript/cirros-0.3.0-x86_64-disk.img
 # 
 echo "[+] Image upload done."
 
-
-
-
-
-
-
-#######################
-# Chapter 3 Neutron   #
-# See also network.sh #
-#######################
 
 # Create database
 MYSQL_ROOT_PASS=openstack
@@ -665,14 +633,6 @@ sudo service neutron-server stop
 sudo service neutron-server start
 
 
-
-
-
-########################
-# Chapter 4 - Compute  #
-# See also compute.sh  #
-########################
-
 # Create database
 MYSQL_HOST=${MNG_IP}
 GLANCE_HOST=${MNG_IP}
@@ -707,9 +667,9 @@ NOVA_CONF=/etc/nova/nova.conf
 KVM=$(egrep '(vmx|svm)' /proc/cpuinfo)
 if [[ ${KVM} ]]
 then
-        LIBVIRT=kvm
+LIBVIRT=kvm
 else
-        LIBVIRT=qemu
+LIBVIRT=qemu
 fi
 
 cp ${NOVA_CONF}{,.bak}
@@ -833,14 +793,6 @@ sudo start nova-consoleauth
 sudo start nova-novncproxy
 
 
-
-
-
-######################
-# Chapter 8 - Cinder #
-# See also cinder.sh #
-######################
-
 # Install the DB
 MYSQL_ROOT_PASS=openstack
 MYSQL_CINDER_PASS=openstack
@@ -950,7 +902,7 @@ cat ${INSTALL_DIR}/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
 # we do not need rsyslog for now
 # sudo stop rsyslog
 # sudo cp ${INSTALL_DIR}/rsyslog.conf /etc/rsyslog.conf
-# sudo echo "*.*         @@controller:5140" >> /etc/rsyslog.d/50-default.conf
+# sudo echo "*.* @@controller:5140" >> /etc/rsyslog.d/50-default.conf
 # sudo service rsyslog restart
 
 # Copy openrc file to local instance vagrant root folder in case of loss of file share
@@ -1004,9 +956,9 @@ TEMPLATE_DEBUG = DEBUG
 # service API. For example, The identity service APIs have inconsistent
 # use of the decimal point, so valid options would be "2.0" or "3".
 # OPENSTACK_API_VERSIONS = {
-#     "data_processing": 1.1,
-#     "identity": 3,
-#     "volume": 2
+# "data_processing": 1.1,
+# "identity": 3,
+# "volume": 2
 # }
 
 # Set this to True if running on multi-domain model. When this is enabled, it
@@ -1024,27 +976,27 @@ TEMPLATE_DEBUG = DEBUG
 
 # Default OpenStack Dashboard configuration.
 HORIZON_CONFIG = {
-    'dashboards': ('project', 'admin', 'settings',),
-    'default_dashboard': 'project',
-    'user_home': 'openstack_dashboard.views.get_user_home',
-    'ajax_queue_limit': 10,
-    'auto_fade_alerts': {
-        'delay': 3000,
-        'fade_duration': 1500,
-        'types': ['alert-success', 'alert-info']
-    },
-    'help_url': "http://docs.openstack.org",
-    'exceptions': {'recoverable': exceptions.RECOVERABLE,
-                   'not_found': exceptions.NOT_FOUND,
-                   'unauthorized': exceptions.UNAUTHORIZED},
-    'angular_modules': [],
-    'js_files': [],
+'dashboards': ('project', 'admin', 'settings',),
+'default_dashboard': 'project',
+'user_home': 'openstack_dashboard.views.get_user_home',
+'ajax_queue_limit': 10,
+'auto_fade_alerts': {
+'delay': 3000,
+'fade_duration': 1500,
+'types': ['alert-success', 'alert-info']
+},
+'help_url': "http://docs.openstack.org",
+'exceptions': {'recoverable': exceptions.RECOVERABLE,
+ 'not_found': exceptions.NOT_FOUND,
+ 'unauthorized': exceptions.UNAUTHORIZED},
+'angular_modules': [],
+'js_files': [],
 }
 
 # Specify a regular expression to validate user passwords.
 # HORIZON_CONFIG["password_validator"] = {
-#     "regex": '.*',
-#     "help_text": _("Your password does not meet the requirements.")
+# "regex": '.*',
+# "help_text": _("Your password does not meet the requirements.")
 # }
 
 # Disable simplified floating IP address management for deployments with
@@ -1073,16 +1025,16 @@ SECRET_KEY = secret_key.generate_or_read_from_file('/var/lib/openstack-dashboard
 # of the django development server, you will have to login again. To use
 # memcached set CACHES to something like
 CACHES = {
-   'default': {
-       'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-       'LOCATION': '127.0.0.1:11211',
-   }
+ 'default': {
+ 'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+ 'LOCATION': '127.0.0.1:11211',
+ }
 }
 
 #CACHES = {
-#    'default': {
-#        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
-#    }
+#'default': {
+#'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+#}
 #}
 
 # Send email to the console by default
@@ -1098,8 +1050,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # For multiple regions uncomment this configuration, and add (endpoint, title).
 # AVAILABLE_REGIONS = [
-#     ('http://cluster1.example.com:5000/v2.0', 'cluster1'),
-#     ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
+# ('http://cluster1.example.com:5000/v2.0', 'cluster1'),
+# ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
 # ]
 
 OPENSTACK_HOST = "${MNG_IP}"
@@ -1119,12 +1071,12 @@ OPENSTACK_SSL_NO_VERIFY = True
 #
 # TODO(tres): Remove these once Keystone has an API to identify auth backend.
 OPENSTACK_KEYSTONE_BACKEND = {
-    'name': 'native',
-    'can_edit_user': True,
-    'can_edit_group': True,
-    'can_edit_project': True,
-    'can_edit_domain': True,
-    'can_edit_role': True
+'name': 'native',
+'can_edit_user': True,
+'can_edit_group': True,
+'can_edit_project': True,
+'can_edit_domain': True,
+'can_edit_role': True
 }
 
 #Setting this to True, will add a new "Retrieve Password" action on instance,
@@ -1136,66 +1088,66 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # can_set_mount_point to True will add the option to set the mount point
 # from the UI.
 OPENSTACK_HYPERVISOR_FEATURES = {
-    'can_set_mount_point': False,
-    'can_set_password': False,
+'can_set_mount_point': False,
+'can_set_password': False,
 }
 
 # The OPENSTACK_CINDER_FEATURES settings can be used to enable optional
 # services provided by cinder that is not exposed by its extension API.
 OPENSTACK_CINDER_FEATURES = {
-    'enable_backup': False,
+'enable_backup': False,
 }
 
 # The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
 # services provided by neutron. Options currently available are load
 # balancer service, security groups, quotas, VPN service.
 OPENSTACK_NEUTRON_NETWORK = {
-    'enable_router': True,
-    'enable_quotas': True,
-    'enable_ipv6': True,
-    'enable_distributed_router': False,
-    'enable_ha_router': False,
-    'enable_lb': True,
-    'enable_firewall': True,
-    'enable_vpn': True,
-    # The profile_support option is used to detect if an external router can be
-    # configured via the dashboard. When using specific plugins the
-    # profile_support can be turned on if needed.
-    'profile_support': None,
-    #'profile_support': 'cisco',
-    # Set which provider network types are supported. Only the network types
-    # in this list will be available to choose from when creating a network.
-    # Network types include local, flat, vlan, gre, and vxlan.
-    'supported_provider_types': ['*'],
+'enable_router': True,
+'enable_quotas': True,
+'enable_ipv6': True,
+'enable_distributed_router': False,
+'enable_ha_router': False,
+'enable_lb': True,
+'enable_firewall': True,
+'enable_vpn': True,
+# The profile_support option is used to detect if an external router can be
+# configured via the dashboard. When using specific plugins the
+# profile_support can be turned on if needed.
+'profile_support': None,
+#'profile_support': 'cisco',
+# Set which provider network types are supported. Only the network types
+# in this list will be available to choose from when creating a network.
+# Network types include local, flat, vlan, gre, and vxlan.
+'supported_provider_types': ['*'],
 }
 
 # The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
 # in the OpenStack Dashboard related to the Image service, such as the list
 # of supported image formats.
 # OPENSTACK_IMAGE_BACKEND = {
-#     'image_formats': [
-#         ('', _('Select format')),
-#         ('aki', _('AKI - Amazon Kernel Image')),
-#         ('ami', _('AMI - Amazon Machine Image')),
-#         ('ari', _('ARI - Amazon Ramdisk Image')),
-#         ('iso', _('ISO - Optical Disk Image')),
-#         ('qcow2', _('QCOW2 - QEMU Emulator')),
-#         ('raw', _('Raw')),
-#         ('vdi', _('VDI')),
-#         ('vhd', _('VHD')),
-#         ('vmdk', _('VMDK'))
-#     ]
+# 'image_formats': [
+# ('', _('Select format')),
+# ('aki', _('AKI - Amazon Kernel Image')),
+# ('ami', _('AMI - Amazon Machine Image')),
+# ('ari', _('ARI - Amazon Ramdisk Image')),
+# ('iso', _('ISO - Optical Disk Image')),
+# ('qcow2', _('QCOW2 - QEMU Emulator')),
+# ('raw', _('Raw')),
+# ('vdi', _('VDI')),
+# ('vhd', _('VHD')),
+# ('vmdk', _('VMDK'))
+# ]
 # }
 
 # The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for
 # image custom property attributes that appear on image detail pages.
 IMAGE_CUSTOM_PROPERTY_TITLES = {
-    "architecture": _("Architecture"),
-    "kernel_id": _("Kernel ID"),
-    "ramdisk_id": _("Ramdisk ID"),
-    "image_state": _("Euca2ools state"),
-    "project_id": _("Project ID"),
-    "image_type": _("Image Type")
+"architecture": _("Architecture"),
+"kernel_id": _("Kernel ID"),
+"ramdisk_id": _("Ramdisk ID"),
+"image_state": _("Euca2ools state"),
+"project_id": _("Project ID"),
+"image_type": _("Image Type")
 }
 
 # The IMAGE_RESERVED_CUSTOM_PROPERTIES setting is used to specify which image
@@ -1211,7 +1163,7 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 # SECONDARY_ENDPOINT_TYPE specifies the fallback endpoint type to use in the
 # case that OPENSTACK_ENDPOINT_TYPE is not present in the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
-# external to the OpenStack environment. The default is None.  This
+# external to the OpenStack environment. The default is None.This
 # value should differ from OPENSTACK_ENDPOINT_TYPE if used.
 #SECONDARY_ENDPOINT_TYPE = "publicURL"
 
@@ -1232,10 +1184,10 @@ TIME_ZONE = "UTC"
 # a flag for reverse sort. For more info, see
 # http://docs.python.org/2/library/functions.html#sorted
 # CREATE_INSTANCE_FLAVOR_SORT = {
-#     'key': 'name',
-#      # or
-#     'key': my_awesome_callback_method,
-#     'reverse': False,
+# 'key': 'name',
+## or
+# 'key': my_awesome_callback_method,
+# 'reverse': False,
 # }
 
 # The Horizon Policy Enforcement engine uses these values to load per service
@@ -1247,12 +1199,12 @@ TIME_ZONE = "UTC"
 #POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 # Map of local copy of service policy files
 #POLICY_FILES = {
-#    'identity': 'keystone_policy.json',
-#    'compute': 'nova_policy.json',
-#    'volume': 'cinder_policy.json',
-#    'image': 'glance_policy.json',
-#    'orchestration': 'heat_policy.json',
-#    'network': 'neutron_policy.json',
+#'identity': 'keystone_policy.json',
+#'compute': 'nova_policy.json',
+#'volume': 'cinder_policy.json',
+#'image': 'glance_policy.json',
+#'orchestration': 'heat_policy.json',
+#'network': 'neutron_policy.json',
 #}
 
 # Trove user and database extension support. By default support for
@@ -1263,220 +1215,220 @@ TIME_ZONE = "UTC"
 # TROVE_ADD_DATABASE_PERMS = []
 
 LOGGING = {
-    'version': 1,
-    # When set to True this will disable all logging except
-    # for loggers specified in this configuration dictionary. Note that
-    # if nothing is specified here and disable_existing_loggers is True,
-    # django.db.backends will still log unless it is disabled explicitly.
-    'disable_existing_loggers': False,
-    'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'django.utils.log.NullHandler',
-        },
-        'console': {
-            # Set the level to "DEBUG" for verbose output logging.
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        # Logging from django.db.backends is VERY verbose, send to null
-        # by default.
-        'django.db.backends': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
-        'requests': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
-        'horizon': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'openstack_dashboard': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'novaclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'cinderclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'keystoneclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'glanceclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'neutronclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'heatclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'ceilometerclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'troveclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'swiftclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'openstack_auth': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'nose.plugins.manager': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'iso8601': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
-        'scss': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
-    }
+'version': 1,
+# When set to True this will disable all logging except
+# for loggers specified in this configuration dictionary. Note that
+# if nothing is specified here and disable_existing_loggers is True,
+# django.db.backends will still log unless it is disabled explicitly.
+'disable_existing_loggers': False,
+'handlers': {
+'null': {
+'level': 'DEBUG',
+'class': 'django.utils.log.NullHandler',
+},
+'console': {
+# Set the level to "DEBUG" for verbose output logging.
+'level': 'INFO',
+'class': 'logging.StreamHandler',
+},
+},
+'loggers': {
+# Logging from django.db.backends is VERY verbose, send to null
+# by default.
+'django.db.backends': {
+'handlers': ['null'],
+'propagate': False,
+},
+'requests': {
+'handlers': ['null'],
+'propagate': False,
+},
+'horizon': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'openstack_dashboard': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'novaclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'cinderclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'keystoneclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'glanceclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'neutronclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'heatclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'ceilometerclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'troveclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'swiftclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'openstack_auth': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'nose.plugins.manager': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'django': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'iso8601': {
+'handlers': ['null'],
+'propagate': False,
+},
+'scss': {
+'handlers': ['null'],
+'propagate': False,
+},
+}
 }
 
 # 'direction' should not be specified for all_tcp/udp/icmp.
 # It is specified in the form.
 SECURITY_GROUP_RULES = {
-    'all_tcp': {
-        'name': _('All TCP'),
-        'ip_protocol': 'tcp',
-        'from_port': '1',
-        'to_port': '65535',
-    },
-    'all_udp': {
-        'name': _('All UDP'),
-        'ip_protocol': 'udp',
-        'from_port': '1',
-        'to_port': '65535',
-    },
-    'all_icmp': {
-        'name': _('All ICMP'),
-        'ip_protocol': 'icmp',
-        'from_port': '-1',
-        'to_port': '-1',
-    },
-    'ssh': {
-        'name': 'SSH',
-        'ip_protocol': 'tcp',
-        'from_port': '22',
-        'to_port': '22',
-    },
-    'smtp': {
-        'name': 'SMTP',
-        'ip_protocol': 'tcp',
-        'from_port': '25',
-        'to_port': '25',
-    },
-    'dns': {
-        'name': 'DNS',
-        'ip_protocol': 'tcp',
-        'from_port': '53',
-        'to_port': '53',
-    },
-    'http': {
-        'name': 'HTTP',
-        'ip_protocol': 'tcp',
-        'from_port': '80',
-        'to_port': '80',
-    },
-    'pop3': {
-        'name': 'POP3',
-        'ip_protocol': 'tcp',
-        'from_port': '110',
-        'to_port': '110',
-    },
-    'imap': {
-        'name': 'IMAP',
-        'ip_protocol': 'tcp',
-        'from_port': '143',
-        'to_port': '143',
-    },
-    'ldap': {
-        'name': 'LDAP',
-        'ip_protocol': 'tcp',
-        'from_port': '389',
-        'to_port': '389',
-    },
-    'https': {
-        'name': 'HTTPS',
-        'ip_protocol': 'tcp',
-        'from_port': '443',
-        'to_port': '443',
-    },
-    'smtps': {
-        'name': 'SMTPS',
-        'ip_protocol': 'tcp',
-        'from_port': '465',
-        'to_port': '465',
-    },
-    'imaps': {
-        'name': 'IMAPS',
-        'ip_protocol': 'tcp',
-        'from_port': '993',
-        'to_port': '993',
-    },
-    'pop3s': {
-        'name': 'POP3S',
-        'ip_protocol': 'tcp',
-        'from_port': '995',
-        'to_port': '995',
-    },
-    'ms_sql': {
-        'name': 'MS SQL',
-        'ip_protocol': 'tcp',
-        'from_port': '1433',
-        'to_port': '1433',
-    },
-    'mysql': {
-        'name': 'MYSQL',
-        'ip_protocol': 'tcp',
-        'from_port': '3306',
-        'to_port': '3306',
-    },
-    'rdp': {
-        'name': 'RDP',
-        'ip_protocol': 'tcp',
-        'from_port': '3389',
-        'to_port': '3389',
-    },
+'all_tcp': {
+'name': _('All TCP'),
+'ip_protocol': 'tcp',
+'from_port': '1',
+'to_port': '65535',
+},
+'all_udp': {
+'name': _('All UDP'),
+'ip_protocol': 'udp',
+'from_port': '1',
+'to_port': '65535',
+},
+'all_icmp': {
+'name': _('All ICMP'),
+'ip_protocol': 'icmp',
+'from_port': '-1',
+'to_port': '-1',
+},
+'ssh': {
+'name': 'SSH',
+'ip_protocol': 'tcp',
+'from_port': '22',
+'to_port': '22',
+},
+'smtp': {
+'name': 'SMTP',
+'ip_protocol': 'tcp',
+'from_port': '25',
+'to_port': '25',
+},
+'dns': {
+'name': 'DNS',
+'ip_protocol': 'tcp',
+'from_port': '53',
+'to_port': '53',
+},
+'http': {
+'name': 'HTTP',
+'ip_protocol': 'tcp',
+'from_port': '80',
+'to_port': '80',
+},
+'pop3': {
+'name': 'POP3',
+'ip_protocol': 'tcp',
+'from_port': '110',
+'to_port': '110',
+},
+'imap': {
+'name': 'IMAP',
+'ip_protocol': 'tcp',
+'from_port': '143',
+'to_port': '143',
+},
+'ldap': {
+'name': 'LDAP',
+'ip_protocol': 'tcp',
+'from_port': '389',
+'to_port': '389',
+},
+'https': {
+'name': 'HTTPS',
+'ip_protocol': 'tcp',
+'from_port': '443',
+'to_port': '443',
+},
+'smtps': {
+'name': 'SMTPS',
+'ip_protocol': 'tcp',
+'from_port': '465',
+'to_port': '465',
+},
+'imaps': {
+'name': 'IMAPS',
+'ip_protocol': 'tcp',
+'from_port': '993',
+'to_port': '993',
+},
+'pop3s': {
+'name': 'POP3S',
+'ip_protocol': 'tcp',
+'from_port': '995',
+'to_port': '995',
+},
+'ms_sql': {
+'name': 'MS SQL',
+'ip_protocol': 'tcp',
+'from_port': '1433',
+'to_port': '1433',
+},
+'mysql': {
+'name': 'MYSQL',
+'ip_protocol': 'tcp',
+'from_port': '3306',
+'to_port': '3306',
+},
+'rdp': {
+'name': 'RDP',
+'ip_protocol': 'tcp',
+'from_port': '3389',
+'to_port': '3389',
+},
 }
 
 # Deprecation Notice:
@@ -1488,15 +1440,15 @@ SECURITY_GROUP_RULES = {
 # <glance_source>/etc/metadefs/compute-quota.json
 #
 # The metadata definition catalog supports CLI and API:
-#  $glance --os-image-api-version 2 help md-namespace-import
-#  $glance-manage db_load_metadefs <directory_with_definition_files>
+#$glance --os-image-api-version 2 help md-namespace-import
+#$glance-manage db_load_metadefs <directory_with_definition_files>
 #
 # See Metadata Definitions on: http://docs.openstack.org/developer/glance/
 
 # Indicate to the Sahara data processing service whether or not
-# automatic floating IP allocation is in effect.  If it is not
+# automatic floating IP allocation is in effect.If it is not
 # in effect, the user will be prompted to choose a floating IP
-# pool for use in their cluster.  False by default.  You would want
+# pool for use in their cluster.False by default.You would want
 # to set this to True if you were running Nova Networking with
 # auto_assign_floating_ip = True.
 # SAHARA_AUTO_IP_ALLOCATION_ENABLED = False
@@ -1513,9 +1465,9 @@ SECURITY_GROUP_RULES = {
 
 # Enable the Ubuntu theme if it is present.
 try:
-  from ubuntu_theme import *
+from ubuntu_theme import *
 except ImportError:
-  pass
+pass
 
 # Default Ubuntu apache configuration uses /horizon as the application root.
 # Configure auth redirects here accordingly.
@@ -1523,8 +1475,8 @@ LOGIN_URL='/auth/login/'
 LOGOUT_URL='/auth/logout/'
 LOGIN_REDIRECT_URL='/'
 
-# By default, validation of the HTTP Host header is disabled.  Production
-# installations should have this set accordingly.  For more information
+# By default, validation of the HTTP Host header is disabled.Production
+# installations should have this set accordingly.For more information
 # see https://docs.djangoproject.com/en/dev/ref/settings/.
 ALLOWED_HOSTS = '*'
 
@@ -1539,8 +1491,8 @@ WSGIDaemonProcess horizon user=horizon group=horizon processes=3 threads=10
 WSGIProcessGroup horizon
 Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
 <Directory /usr/share/openstack-dashboard/openstack_dashboard/wsgi>
-  Order allow,deny
-  Allow from all
+Order allow,deny
+Allow from all
 </Directory>
 EOF
 
@@ -1553,7 +1505,7 @@ sudo echo "\$ModLoad imtcp" >> /etc/rsyslog.conf
 sudo echo "\$InputTCPServerRun 5140" >> /etc/rsyslog.conf
 sudo restart rsyslog
 
-# Create an openrc  file
+# Create an openrcfile
 cat > ${INSTALL_DIR}/openrc <<EOF
 export OS_TENANT_NAME=ostest
 export OS_USERNAME=admin
@@ -1568,41 +1520,3 @@ sudo cp ${INSTALL_DIR}/openrc ${HOME_DIR}
 
 # Hack: restart neutron again...
 service neutron-server restart
-
-
-# ####################
-# # Chapter 9 - Heat #
-# # (More OpenStack) #
-# ####################
-# 
-# echo "[+] Executing Heat installation script"
-# sudo /vagrant/heat.sh
-# echo "[+] Heat installation complete."
-# 
-# 
-# 
-# #########################
-# # Chapter 9 -Ceilometer #
-# # (More OpenStack)      #
-# #########################
-# 
-# echo "[+] Executing Ceilometer installation script"
-# sudo /vagrant/ceilometer.sh
-# echo "[+] Ceilometer install complete."
-# 
-# 
-# 
-# # Sort out keys for root user
-# sudo ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
-# rm -f /vagrant/id_rsa*
-# sudo cp /root/.ssh/id_rsa /vagrant
-# sudo cp /root/.ssh/id_rsa.pub /vagrant
-# cat /vagrant/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
-# 
-# 
-# 
-# ##################################
-# # Chapter 12 - Logstash & Kibana #
-# # (Production OpenStack)         #
-# ##################################
-# # sudo /vagrant/logstash.sh

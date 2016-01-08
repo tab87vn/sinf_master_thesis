@@ -1,0 +1,385 @@
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 59307 connected with 11.0.0.18 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  6.02 MBytes  50.5 Mbits/sec
+[  3]  1.0- 2.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  2.0- 3.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  0.0- 4.0 sec  6.03 MBytes  12.5 Mbits/sec
+[  3] Sent 4299 datagrams
+[  3] Server Report:
+[  3]  0.0- 4.0 sec  5.49 MBytes  11.4 Mbits/sec   0.416 ms  384/ 4299 (8.9%)
+[  3]  0.0- 4.0 sec  27 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 53061 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 38755 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 42111 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 38494 connected with 11.0.0.18 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  2.67 MBytes   290 Mbits/sec
+[  3] Sent 1902 datagrams
+[  3] Server Report:
+[  3]  0.0- 6.2 sec  2.67 MBytes  3.62 Mbits/sec   0.033 ms    0/ 1901 (0%)
+[  3]  0.0- 6.2 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 40977 connected with 11.0.0.18 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  5.06 MBytes   383 Mbits/sec
+[  3] Sent 3610 datagrams
+[  3] Server Report:
+[  3]  0.0- 6.3 sec  4.70 MBytes  6.24 Mbits/sec   0.265 ms  253/ 3609 (7%)
+[  3]  0.0- 6.3 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 54832 connected with 11.0.0.18 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  2.89 MBytes   263 Mbits/sec
+[  3] Sent 2064 datagrams
+[  3] Server Report:
+[  3]  0.0- 6.4 sec  2.89 MBytes  3.77 Mbits/sec   0.041 ms    0/ 2063 (0%)
+[  3]  0.0- 6.4 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 43512 connected with 11.0.0.18 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.0 sec   159 KBytes   189 Mbits/sec
+[  3] Sent 111 datagrams
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 52164 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 34279 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 56317 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 35852 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 36346 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 36851 connected with 11.0.0.18 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.0 sec  6.02 MBytes  50.5 Mbits/sec
+[  3]  1.0- 2.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  2.0- 3.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  3.0- 4.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  4.0- 5.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  5.0- 6.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  6.0- 7.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  7.0- 8.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  8.0- 9.0 sec  1.44 KBytes  11.8 Kbits/sec
+[  3]  9.0-10.0 sec  1.44 KBytes  11.8 Kbits/sec
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 35505 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 52426 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 45221 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 37264 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 58845 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 48692 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 46178 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 51120 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.18, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 35717 connected with 11.0.0.18 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 59353 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 32780 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 33778 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 50975 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 34736 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 51731 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 36866 connected with 11.0.0.21 port 5001
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 52424 connected with 11.0.0.21 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  5.24 MBytes   373 Mbits/sec
+[  3] Sent 3738 datagrams
+[  3] Server Report:
+[  3]  0.0-382.9 sec  5.24 MBytes   115 Kbits/sec   0.345 ms    0/ 3737 (0%)
+[  3]  0.0-382.9 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 44428 connected with 11.0.0.21 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.0 sec   457 KBytes   196 Mbits/sec
+[  3] Sent 318 datagrams
+[  3] Server Report:
+[  3]  0.0-382.9 sec   457 KBytes  9.77 Kbits/sec   0.009 ms    1/  317 (0.32%)
+[  3]  0.0-382.9 sec  2 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 11.0.0.21, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 33614 connected with 11.0.0.21 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  2.27 MBytes   272 Mbits/sec
+[  3] Sent 1620 datagrams
+[  3] Server Report:
+[  3]  0.0-383.0 sec  2.27 MBytes  49.7 Kbits/sec   0.029 ms    0/ 1619 (0%)
+[  3]  0.0-383.0 sec  1 datagrams received out-of-order
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 48693 connected with 12.0.0.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  2.68 MBytes   367 Mbits/sec
+[  3] Sent 1912 datagrams
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 46809 connected with 12.0.0.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.0 sec  97.6 KBytes   121 Mbits/sec
+[  3] Sent 68 datagrams
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 34766 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 49353 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 34050 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 35127 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 46092 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 34415 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.5, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 48086 connected with 12.0.0.5 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 47273 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 53393 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 50729 connected with 12.0.0.6 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.0 sec  58.9 KBytes   172 Mbits/sec
+[  3] Sent 41 datagrams
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 43058 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 36163 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 41505 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 56684 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 39729 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 40915 connected with 12.0.0.6 port 5001
+------------------------------------------------------------
+Client connecting to 12.0.0.6, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.17 port 59537 connected with 12.0.0.6 port 5001

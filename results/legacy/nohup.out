@@ -1,0 +1,238 @@
+./iperf_ext.sh: 2: ./iperf_ext.sh: Syntax error: "(" unexpected
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42539
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42540
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  6] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42541
+[  6]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42542
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42543
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42544
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42545
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  6] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42546
+[  6]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42547
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.129 port 42548
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  6] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44885
+[  6]  0.0-60.0 sec   176 GBytes  25.2 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44886
+[  4]  0.0-60.0 sec   180 GBytes  25.8 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44887
+[  5]  0.0-60.0 sec   177 GBytes  25.4 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44888
+[  4]  0.0-60.0 sec   178 GBytes  25.5 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44889
+[  5]  0.0-60.0 sec   179 GBytes  25.6 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44890
+[  4]  0.0-60.0 sec   179 GBytes  25.7 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44891
+[  5]  0.0-60.0 sec   179 GBytes  25.6 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44892
+[  4]  0.0-60.0 sec   179 GBytes  25.6 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44893
+[  5]  0.0-60.0 sec   186 GBytes  26.7 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.126 port 44894
+[  4]  0.0-60.0 sec   181 GBytes  25.8 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45927
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45928
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45929
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45930
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  6] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45931
+[  6]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45932
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45933
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45934
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45935
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.127 port 45936
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46161
+[  5]  0.0-60.0 sec   107 GBytes  15.4 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46162
+[  4]  0.0-60.0 sec   108 GBytes  15.4 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46163
+[  5]  0.0-60.0 sec   108 GBytes  15.4 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46164
+[  4]  0.0-60.0 sec   108 GBytes  15.4 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46165
+[  5]  0.0-60.0 sec   108 GBytes  15.4 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46166
+[  4]  0.0-60.0 sec   108 GBytes  15.5 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46167
+[  5]  0.0-60.0 sec   107 GBytes  15.3 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46168
+[  4]  0.0-60.0 sec   107 GBytes  15.4 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46169
+[  5]  0.0-60.0 sec   108 GBytes  15.4 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.144 port 46170
+[  4]  0.0-60.0 sec   108 GBytes  15.4 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47298
+[  5]  0.0-60.0 sec   158 GBytes  22.6 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47299
+[  4]  0.0-60.0 sec   158 GBytes  22.6 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47300
+[  5]  0.0-60.0 sec   157 GBytes  22.5 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47301
+[  4]  0.0-60.0 sec   159 GBytes  22.7 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47302
+[  5]  0.0-60.0 sec   159 GBytes  22.8 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47303
+[  4]  0.0-60.0 sec   157 GBytes  22.5 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47304
+[  5]  0.0-60.0 sec   159 GBytes  22.8 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47305
+[  4]  0.0-60.0 sec   159 GBytes  22.8 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47306
+[  5]  0.0-60.0 sec   159 GBytes  22.8 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.140 port 47307
+[  4]  0.0-60.0 sec   160 GBytes  22.9 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36339
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36340
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36341
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36342
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36343
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36344
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36345
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  6] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36346
+[  6]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36347
+[  4]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.141 port 36348
+[  5]  0.0-60.0 sec  6.55 GBytes   937 Mbits/sec
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.22 port 57471
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-271.0 sec  65.1 GBytes  2.06 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.22 port 57473
+[  5]  0.0-561.3 sec   134 GBytes  2.06 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.22 port 57474
+[  4]  0.0-216.9 sec  52.1 GBytes  2.06 Gbits/sec
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  4] local 127.0.0.1 port 5001 connected with 127.0.0.1 port 38980
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.5 sec  5.35 GBytes  30.6 Gbits/sec
+[  5] local 127.0.0.1 port 5001 connected with 127.0.0.1 port 38981
+[  5]  0.0-1302.1 sec  8515867508736 bits  52.3 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39035
+[  4]  0.0-10.0 sec  16.3 GBytes  14.0 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39036
+[  5]  0.0-60.0 sec   114 GBytes  16.3 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39053
+[  4]  0.0- 9.6 sec  15.1 GBytes  13.5 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39173
+[  5]  0.0- 7.3 sec  8.62 GBytes  10.2 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39174
+[  4]  0.0- 2.2 sec  3.46 GBytes  13.4 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39175
+[  5]  0.0- 0.4 sec   423 MBytes  9.52 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39176
+[  4]  0.0- 0.3 sec   445 MBytes  11.9 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39177
+[  5]  0.0- 0.4 sec   568 MBytes  11.0 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39178
+[  4]  0.0- 0.0 sec  15.4 MBytes  6.36 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39179
+[  5]  0.0- 0.0 sec  33.5 MBytes  9.26 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39180
+[  4]  0.0- 0.0 sec  19.9 MBytes  5.49 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39181
+[  5]  0.0- 0.0 sec  28.9 MBytes  5.98 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39182
+[  4]  0.0- 0.0 sec  4.00 MBytes  3.29 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 43987
+[  5]  0.0-60.0 sec  71.1 GBytes  10.2 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 43994
+[  4]  0.0-60.0 sec  67.1 GBytes  9.60 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44000
+[  5]  0.0-60.0 sec  70.1 GBytes  10.0 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44006
+[  4]  0.0-60.0 sec  70.3 GBytes  10.1 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44012
+[  5]  0.0-60.0 sec  76.2 GBytes  10.9 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44018
+[  4]  0.0-60.0 sec  70.2 GBytes  10.1 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44025
+[  5]  0.0-60.0 sec  75.7 GBytes  10.8 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44031
+[  4]  0.0-32.6 sec  39.8 GBytes  10.5 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44037
+[  5]  0.0- 0.2 sec   160 MBytes  6.63 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44038
+[  4]  0.0- 0.1 sec  81.6 MBytes  4.84 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39235
+[  5]  0.0- 4.5 sec  7.10 GBytes  13.6 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39279
+[  4]  0.0-60.0 sec   106 GBytes  15.2 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44090
+[  5]  0.0-60.0 sec  78.4 GBytes  11.2 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39307
+[  4]  0.0-60.0 sec   102 GBytes  14.7 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39314
+[  5]  0.0-60.0 sec   118 GBytes  16.9 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39320
+[  4]  0.0-60.0 sec   117 GBytes  16.7 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39326
+[  5]  0.0-60.0 sec   101 GBytes  14.4 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39327
+[  4]  0.0-60.0 sec   110 GBytes  15.7 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39333
+[  5]  0.0-60.0 sec  99.8 GBytes  14.3 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39340
+[  4]  0.0-60.0 sec   108 GBytes  15.5 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39346
+[  5]  0.0-60.0 sec   108 GBytes  15.5 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39352
+[  4]  0.0-60.0 sec   106 GBytes  15.1 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 14.0.0.1 port 39358
+[  5]  0.0-60.0 sec   115 GBytes  16.5 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44168
+[  4]  0.0-60.0 sec  74.1 GBytes  10.6 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44175
+[  5]  0.0-60.0 sec  75.1 GBytes  10.8 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44181
+[  4]  0.0-60.0 sec  75.1 GBytes  10.8 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44187
+[  5]  0.0-60.0 sec  78.1 GBytes  11.2 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44193
+[  4]  0.0-60.0 sec  71.2 GBytes  10.2 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44199
+[  5]  0.0-60.0 sec  74.0 GBytes  10.6 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44206
+[  4]  0.0-60.0 sec  75.4 GBytes  10.8 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44212
+[  5]  0.0-60.0 sec  74.5 GBytes  10.7 Gbits/sec
+[  4] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44218
+[  4]  0.0-60.0 sec  70.9 GBytes  10.2 Gbits/sec
+[  5] local 14.0.0.21 port 5001 connected with 10.0.100.3 port 44224
+[  5]  0.0-60.0 sec  71.9 GBytes  10.3 Gbits/sec

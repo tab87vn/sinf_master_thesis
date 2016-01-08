@@ -1,0 +1,358 @@
+** rabbimq cannot connect **
+make sure that the rabbitmq part in the config file stays in the [default] area, or at least no belongs to any other area
+
+*** certificate ***
+make sure that all compute/network nodes has the the copy of controller's /etc/ssl/certs/ca.pem
+
+
+*** restart compute node ***
+	config interface
+	restart ovs/l3 agent
+
+
+*** RSYSLOG fix
+https://bugs.launchpad.net/ubuntu/+source/irqbalance/+bug/1085538
+https://github.com/Irqbalance/irqbalance
+
+
+** when start neutron agent services
+"ImportError: cannot import name messaging" neutron
+sudo pip install --upgrade oslo.messaging
+sudo pip install --upgrade oslo.db
+
+
+** check listen port
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/Security_Guide/s1-server-ports.html
+
+
+tcpdump -n -i
+htop
+netstat -nr => find gateway
+pass cirros: cubswin:)
+
+>>> note:
+- create new key pair on controller
+- create new instance with publickey
+- copy content of private to whatever host used to login to vm
+	then ssh -i <private key> ubuntu@<vm-ip-address>
+
+copy file to host
+	scp -i demokey iperf ubuntu@172.31.30.110:/home/ubuntu/iperf
+copy file from host
+	scp -i demokey ubuntu@172.31.30.110:/home/ubuntu/iperf iperf 
+=====
+restart on Nova
+service nova-compute restart
+service nova-consoleauth restart
+service nova-novncproxy restart
+service nova-api-metadata restart
+
+>>>restart controller's nova services restart
+service nova-consoleauth restart
+service nova-cert restart
+service nova-scheduler restart
+service nova-conductor restart
+service nova-api restart
+service nova-objectstore restart
+
+>>> restart glance 
+sudo stop glance-registry
+sudo start glance-registry
+sudo stop glance-api
+sudo start glance-api
+sudo glance-manage db_sync
+
+
+>>> restart network services on network node
+sudo service neutron-plugin-openvswitch-agent restart
+sudo service neutron-dhcp-agent restart
+sudo service neutron-l3-agent stop # DVR SO DONT RUN
+sudo service neutron-l3-agent start # NON-DVR
+sudo service neutron-lbaas-agent stop
+sudo service neutron-lbaas-agent start
+sudo service neutron-metadata-agent restart
+
+root@controller:~# neutron net-update 8a25c65c-f6cb-4803-a809-bbb90fe1d908 --provider:segmentation-id 2
+
+
+FREE MEMORY
+	sync && echo 3 > /proc/sys/vm/drop_caches
+
+
+Edit /etc/openstack-dashboard/local_settings.py:
+
+vi /etc/openstack-dashboard/local_settings.py
+ALLOWED_HOSTS = ['localhost', '192.168.100.11']
+OPENSTACK_HOST = "controller"
+
+
+
+http://docs.openstack.org/user-guide/content/instance_console.html
+
+
+- NO CINDER IS FINE
+- DON'T RUN THINGS WITH ROOT
+- NEXT: ADD ONE MORE COMPUTE NODE <===
+- RESTART CONTROLLER AFTER INSTALLATION
+
+sample:
+https://github.com/ChaimaGhribi/OpenStack-Icehouse-Installation/blob/master/Create-your-first-instance-with-Neutron.rst
+
+
+
+---
+>> create tenant -> okay, the tenant is there
+keystone tenant-create --name newtenant
+
+
+get tenant_id
+
+>> create tenant network
+neutron net-create --tenant-id $TENANT_ID t1_net
+neutron net-create --tenant-id $TENANT2_ID test_net_2
+
+>>> create tenant subnet
+		neutron subnet-create --tenant_id $TENANT_ID --name $SUBNET_NAME $NET_NAME --allocation-pool start=172.31.29.10,end=172.31.29.100 --enable-dhcp=TRUE 172.31.29.0/24
+
+	neutron subnet-create --tenant_id $TENANT_ID --name test_subnet_1 test_network_1 --allocation-pool start=172.31.28.10,end=172.31.28.50 --enable-dhcp=TRUE 172.31.28.0/24
+	
+	
+	neutron subnet-create t1_net1 --name t1_subnet1 10.0.0.0/8
+	neutron subnet-create --tenant-id $TENANT2_ID --name test_subnet_2 11.0.0.0/8
+	
+	=> try to create a non-conflicting subnet with the external subnet
+		so that the gateway 172.31.16.0/20 can be enabled for the external gateway
+
+
+>> create router
+	export ROUTER=test_router_1
+	neutron router-create --tenant-id $TENANT_ID $ROUTER
+
+>> connect router to tenant subnet
+	export ROUTER_ID=...
+	export SUBNET_ID=...
+	
+	neutron router-interface-add $ROUTER_ID $SUBNET_ID
+		
+	neutron router-interface-delete
+
+>>> create Nova instance
+nova secgroup-add-rule default tcp 22 22 0.0.0.0/0
+nova secgroup-add-rule default icmp -1 -1 0.0.0.0/0
+nova secgroup-add-rule default tcp 5001 5001 0.0.0.0/0
+
+
+	# Fix m1.tiny
+nova flavor-delete 1
+nova flavor-create m1.tiny 1 512 0 1
+
+nova flavor-create m1.zero 6 128 0 1
+nova flavor-create m2.zero 7 256 0 1
+nova flavor-create m2.tiny 8 512 0 1
+
+
+nova boot --image $CIRR --flavor m1.zero --key_name key1 --availability-zone nova:$NOVA2 --nic net-id=${NET_ID} nova2_test1
+
+nova boot --image $CIRR --flavor 6 --key_name demokey --nic net-id=${NET_ID} vm1
+nova boot --image $CIRR --flavor 6 --key_name demokey --nic net-id=${NET2_ID} net2_vm2
+
+nova boot --image cirros-image --flavor 6 --nic net-id=t1_net1 vm2
+nova boot --image trusty-image --flavor 7 --key_name demokey --nic net-id=${NET_ID} vm1
+
+
+
+ssh-keygen -t rsa -f demokey -N ""
+
+nova keypair-add --pub-key demokey.pub demokey
+rm -f /vagrant/demokey
+cp demokey /vagrant
+
+nova boot --flavor 1 --image ${CIRR} --key_name demokey --nic net-id=${NET_ID} test1
+
+*** NOTE: CHECK ON COMPUTE NOTE
+ https://ask.openstack.org/en/question/1279/nova-scheduler-driver-setting-instance-to-error-state/
+	
+		chown nova:nova /etc/nova/*
+		 /var/log/nova/scheduler.log:
+	check all nova services, make sure they all run:
+	root@ip-172-31-28-200:/var/log/nova# nova-manage service list
+Binary           Host                                 Zone             Status     State Updated_At
+nova-scheduler   ip-172-31-28-200                     internal         enabled    :-)   2015-03-20 04:17:24
+nova-cert        ip-172-31-28-200                     internal         enabled    :-)   2015-03-20 04:17:24
+nova-consoleauth ip-172-31-28-200                     internal         enabled    :-)   2015-03-20 04:17:24
+nova-conductor   ip-172-31-28-200                     internal         enabled    :-)   2015-03-20 04:17:24
+nova-consoleauth ip-172-31-28-201                     internal         enabled    :-)   2015-03-20 04:17:20
+nova-compute     ip-172-31-28-201                     nova             enabled    :-)   2015-03-20 04:17:24
+	=> nova-compute might not be running on compute node -> check log and services like above	
+		 
+		 /var/log/nova <== compute & controller
+		 
+
+
+	export VM_1=test_vm_1
+	nova image-list
+	export CIRROS=4677c889-00be-4cbe-bd60-417103b9c028
+	
+	nova boot --flavor 1 --image $CIRROS --key_name demokey --nic net-id=$NET_ID $VM_1
+	nova boot --flavor 1 --image 346c53dd-af50-40bc-bdd3-6c9d0f966461 --key_name demokey --nic net-id=1be23d44-94c5-4afe-a858-f8a378b13bd5 test_vm_1
+
+
+>>> create external network
+neutron net-create ext_net --router:external=True
+
+neutron net-create --tenant-id ${TENANT_ID} ext_net --router:external=True
+neutron net-create --tenant-id ${TENANT2_ID} ext2_net --router:external=True
+
+neutron subnet-create --tenant-id ${TENANT_ID} --name ext-subnet --allocation-pool start=172.31.30.11,end=172.31.30.100 --gateway 172.31.16.1 ext_net 172.31.30.0/24 --enable_dhcp=False
+
+neutron subnet-create --tenant-id ${TENANT_ID} --name ext-subnet --allocation-pool start=192.168.100.11,end=192.168.100.100 --gateway 192.168.100.1 ext_net 192.168.100.0/24 --enable_dhcp=False
+
+neutron subnet-create ext_net --name ext_subnet \
+--allocation-pool start=172.31.22.101,end=172.31.22.199 \
+--disable-dhcp --gateway 172.31.22.1 172.31.22.0/24
+
+
+	*Note: 
+		gateway here is the gateway of the external network, via which the internet access is available => 172.31.16.1
+		
+
+
+neutron subnet-create --tenant-id ${TENANT_ID} --name float_subnet_1 --allocation-pool start=192.168.0.101,end=192.168.0.130 --gateway 192.168.0.1 ext_net 192.168.0.0/24 --enable_dhcp=False
+
+neutron subnet-create --tenant-id ${TENANT_ID} --name float_subnet_1 --allocation-pool start=172.31.30.101,end=172.31.30.200 --gateway 172.31.16.1 ext_net 172.31.30.0/24 --enable_dhcp=False
+
+neutron subnet-create --tenant-id ${TENANT2_ID} --name float_subnet_2 --allocation-pool start=172.31.30.151,end=172.31.30.199 --gateway 172.31.16.1 ext2_net 172.31.30.0/24 --enable_dhcp=False
+
+neutron subnet-create --name sub_ext_net ext_net 172.31.16.0/20 --gateway 172.31.16.1 --allocation-pool start=172.31.22.200,end=172.31.22.250 --enable_dhcp=False --dns-nameservers list=true 8.8.8.8 8.8.4.4
+
+ROUTER_ID=$(neutron router-list 
+
+>>> attach router to the external net
+neutron router-gateway-set ${ROUTER_ID} ext_net
+
+neutron router-gateway-set ${ROUTER2_ID} ext_net
+
+neutron net-create ext_net --router:external=True
+
+neutron subnet-create --name sub_ext_net ext_net 10.0.100.0/24 --gateway 10.0.100.1 --allocation-pool start=10.0.100.50,end=10.0.100.100 --enable_dhcp=False --dns-nameservers list=true 8.8.8.8 8.8.4.4
+
+>> create floating ip
+	neutron floatingip-create ext_net
+	neutron floatingip-create --tenant-id $TENANT2_ID ext_net
+	
+	
+
+>> associate floating IP
+	nova floating-ip-associate test2 172.31.30.103
+	nova floating-ip-list
+
+>>> remove interface from router
+	router-interface-delete <router_id> <subnet_id>
+	router-interface-delete $ROUTER_ID $SUBNET2_ID
+
+>> creat
+
+
+>>>> IF Rrouter gateway to external network is DOWN
+sudo ovs-vsctl br-set-external-id br-ex bridge-id br-ex
+sudo service neutron-plugin-openvswitch-agent restart
+
+https://bugs.launchpad.net/neutron/+bug/1253634/comments/4
+
+
+
+2) check the image carefully -> the instance might not have an OS	
+-----
+admin pass
+vMGH9m5FSiSe
+uk8oDJdfVQM6
+
+userid: ca5eb4839e1e4429b455afeee8a8a7dc
+
+----
+REFERENCES
+https://github.com/ChaimaGhribi/OpenStack-Icehouse-Installation/blob/master/OpenStack-Icehouse-Installation.rst
+
+
+https://openstackr.wordpress.com/2014/05/01/openstack-cloud-computing-cookbook-the-icehouse-scripts/
+https://openstackr.wordpress.com/2014/11/18/remote-openstack-vagrant-environment/comment-page-1/#comment-291
+http://docs.openstack.org/icehouse/install-guide/install/apt/content/neutron_initial-external-network.html
+https://fosskb.wordpress.com/2014/06/10/managing-openstack-internaldataexternal-network-in-one-interface/
+
+
+http://schmaustech.blogspot.be/2014/12/openstack-neutron-distributed-virtual.html <==- DVR
+
+
+http://openstackcookbook.com/
+----
+
+ifconfig eth1 172.31.30.200 netmask 255.255.255.0
+ifconfig eth1 up
+
+ifconfig eth1 172.31.29.201 netmask 255.255.255.0
+ifconfig eth1 up
+ifconfig eth2 172.31.30.201 netmask 255.255.255.0
+ifconfig eth2 up
+
+
+ifconfig eth1 172.31.29.202 netmask 255.255.255.0
+ifconfig eth1 up
+
+ifconfig eth1 172.31.29.203 netmask 255.255.255.0
+ifconfig eth1 up
+
+
+=====
+NETWORK
+vi /etc/network/interfaces
+
+# The management network interface
+  auto eth0
+  iface eth0 inet static
+  address 172.31.28.201
+  netmask 255.255.255.0
+
+# VM traffic interface
+  auto eth1
+  iface eth1 inet static
+  address 172.31.29.201
+  netmask 255.255.255.0
+
+# The public network interface
+  auto eth2
+  iface eth2 inet static
+  address 172.31.30.201
+  netmask 255.255.255.0
+  gateway 172.31.16.1
+  dns-nameservers 8.8.8.8
+  
+  ifdown eth0 && ifup eth0
+
+ifdown eth1 && ifup eth1
+
+ifdown eth2 && ifup eth2
+
+
+# The management network interface
+  auto eth0
+  iface eth0 inet static
+  address 172.31.28.202
+  netmask 255.255.255.0
+
+# VM traffic interface
+  auto eth1
+  iface eth1 inet static
+  address 172.31.29.202
+  netmask 255.255.255.0
+  
+  # The management network interface
+  auto eth0
+  iface eth0 inet static
+  address 172.31.28.203
+  netmask 255.255.255.0
+
+# VM traffic interface
+  auto eth1
+  iface eth1 inet static
+  address 172.31.29.203
+  netmask 255.255.255.0

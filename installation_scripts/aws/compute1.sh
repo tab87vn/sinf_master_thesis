@@ -74,11 +74,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 # sudo scp ubuntu@controller:/etc/ssl/certs/ca.pem /etc/ssl/certs/ca.pem
 sudo c_rehash /etc/ssl/certs/ca.pem
 
-#######################
-# Chapter 4 - Compute #
-#######################
-
-# Must define your environment
 MYSQL_HOST=${CONTROLLER_HOST}
 GLANCE_HOST=${CONTROLLER_HOST}
 
@@ -230,19 +225,6 @@ connection = mysql://neutron:${MYSQL_NEUTRON_PASS}@${CONTROLLER_HOST}/neutron
 #service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVPNDriver:default
 
 EOF
-
-#
-# Chapter 3 - Networking DVR
-#
-
-#cat > ${NEUTRON_L3_AGENT_INI} << EOF
-#[DEFAULT]
-#interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver
-#use_namespaces = True
-#agent_mode = dvr
-#external_network_bridge = br-ex
-#verbose = True
-#EOF
 
 cat > ${NEUTRON_PLUGIN_ML2_CONF_INI} << EOF
 [ml2]
@@ -425,15 +407,6 @@ sudo chown nova:nova $NOVA_CONF
 
 }
 
-
-##############################
-# Chapter 9 - More OpenStack #
-##############################
-
-# nova_ceilometer() {
-# 	/vagrant/ceilometer-compute.sh
-# }
-
 nova_restart() {
 	sudo stop libvirt-bin
 	sudo start libvirt-bin
@@ -449,25 +422,3 @@ nova_compute_install
 nova_configure
 # nova_ceilometer
 nova_restart
-
-# sleep 90; echo "[+] Restarting nova-* on controller"
-# ssh root@controller "cd /etc/init; ls nova-* neutron-server.conf | cut -d '.' -f1 | while read N; do stop \$N; start \$N; done"
-# sleep 30; echo "[+] Restarting nova-* on compute"
-# nova_restart
-# start neutron-l3-agent
-# 
-# # Because live-migration
-# # Do some terrible things for GID/UID mapping on compute nodes:
-# UID=`ssh root@controller "id nova | awk {'print $1'} | cut -d '=' -f2 | cut -d '(' -f1"`
-# GID=`ssh root@controller "id nova | awk {'print $1'} | cut -d '=' -f2 | cut -d '(' -f1"`
-# sudo usermod -u $UID nova
-# sudo groupmod -g $GID nova
-# 
-# # Logging
-# sudo stop rsyslog
-# sudo cp ${INSTALL_DIR}/rsyslog.conf /etc/rsyslog.conf
-# sudo echo "*.*         @@controller:5140" >> /etc/rsyslog.d/50-default.conf
-# sudo service rsyslog restart
-# 
-# # Copy openrc file to local instance vagrant root folder in case of loss of file share
-# sudo cp ${INSTALL_DIR}/openrc ${HOME_DIR} 
