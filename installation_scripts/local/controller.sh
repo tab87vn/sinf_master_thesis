@@ -1,0 +1,1392 @@
+#!/bin/bash
+
+# controller.sh
+
+# Exporting environment variables
+echo "########## PREPARING... ##########"
+
+export CONTROLLER_HOST=130.104.230.109
+export CONTROLLER_EXT_HOST=10.0.100.6
+
+export NETWORK_HOST=130.104.230.110
+export NETWORK_VMN_HOST=192.168.100.7
+export NETWORK_EXT_HOST=10.0.100.7
+
+export COMPUTE1_HOST=130.104.230.106
+export COMPUTE1_VMN_HOST=192.168.100.3
+export COMPUTE1_EXT_HOST=10.0.100.3
+
+export COMPUTE2_HOST=130.104.230.107
+export COMPUTE2_VMN_HOST=192.168.100.4
+export COMPUTE2_EXT_HOST=10.0.100.4
+
+
+export INSTALL_DIR=/home/ubuntu/junoscript
+export HOME_DIR=/home/ubuntu
+# export INSTALL_DIR=/vagrant
+# export HOME_DIR=/home/vagrant
+
+export MNG_IP=130.104.230.109
+export EXT_IP=10.0.100.6
+
+export PUBLIC_IP=${MNG_IP}
+export INT_IP=${MNG_IP}
+export ADMIN_IP=${MNG_IP}
+
+export GLANCE_HOST=${CONTROLLER_HOST}
+export MYSQL_HOST=${CONTROLLER_HOST}
+export KEYSTONE_ADMIN_ENDPOINT=${CONTROLLER_HOST}
+export KEYSTONE_ENDPOINT=${KEYSTONE_ADMIN_ENDPOINT}
+export CONTROLLER_EXTERNAL_HOST=${KEYSTONE_ADMIN_ENDPOINT}
+export MYSQL_NEUTRON_PASS=openstack
+export SERVICE_TENANT_NAME=service
+export SERVICE_PASS=openstack
+export ENDPOINT=${KEYSTONE_ADMIN_ENDPOINT}
+export SERVICE_TOKEN=ADMIN
+export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
+export MONGO_KEY=MongoFoo
+export OS_CACERT=${INSTALL_DIR}/ca.pem
+export OS_KEY=${INSTALL_DIR}/cakey.pem
+
+# configure host resolution
+echo "
+# OpenStack hosts
+${CONTROLLER_HOST}	controller.ostest controller
+${NETWORK_HOST}	network.ostest network
+${COMPUTE1_HOST} compute-01.ostest compute-01
+${COMPUTE2_HOST} compute-02.ostest compute-02" | sudo tee -a /etc/hosts
+
+# UPGRADE
+sudo apt-get install -y software-properties-common ubuntu-cloud-keyring
+sudo add-apt-repository -y cloud-archive:juno
+sudo apt-get update && sudo apt-get upgrade -y
+
+
+# MySQL
+echo "########## INSTALLING MySQL ##########"
+sleep 10
+
+export MYSQL_HOST=${MNG_IP}
+export MYSQL_ROOT_PASS=openstack
+export MYSQL_DB_PASS=openstack
+
+echo "mysql-server-5.5 mysql-server/root_password password $MYSQL_ROOT_PASS" | sudo debconf-set-selections
+echo "mysql-server-5.5 mysql-server/root_password_again password $MYSQL_ROOT_PASS" | sudo debconf-set-selections
+echo "mysql-server-5.5 mysql-server/root_password seen true" | sudo debconf-set-selections
+echo "mysql-server-5.5 mysql-server/root_password_again seen true" | sudo debconf-set-selections
+
+sudo apt-get -y install mariadb-server python-mysqldb
+
+sudo sed -i "s/^bind\-address.*/bind-address = 0.0.0.0/g" /etc/mysql/my.cnf
+sudo sed -i "s/^#max_connections.*/max_connections = 512/g" /etc/mysql/my.cnf
+
+# Skip Name Resolve
+echo "[mysqld]
+skip-name-resolve" > /etc/mysql/conf.d/skip-name-resolve.cnf
+
+
+# UTF-8 Stuff
+echo "[mysqld]
+collation-server = utf8_general_ci
+init-connect='SET NAMES utf8'
+character-set-server = utf8" > /etc/mysql/conf.d/01-utf8.cnf
+
+sudo service mysql restart
+
+# Ensure root can do its job
+mysql -u root -p${MYSQL_ROOT_PASS} -h localhost -e "GRANT ALL ON *.* to root@\"localhost\" IDENTIFIED BY \"${MYSQL_ROOT_PASS}\" WITH GRANT OPTION;"
+mysql -u root -p${MYSQL_ROOT_PASS} -h localhost -e "GRANT ALL ON *.* to root@\"${MYSQL_HOST}\" IDENTIFIED BY \"${MYSQL_ROOT_PASS}\" WITH GRANT OPTION;"
+mysql -u root -p${MYSQL_ROOT_PASS} -h localhost -e "GRANT ALL ON *.* to root@\"%\" IDENTIFIED BY \"${MYSQL_ROOT_PASS}\" WITH GRANT OPTION;"
+
+mysqladmin -uroot -p${MYSQL_ROOT_PASS} flush-privileges
+
+
+############
+# KEYSTONE #
+############
+
+# Create database
+sudo apt-get -y install ntp keystone python-keyring
+
+# Config Files
+KEYSTONE_CONF=/etc/keystone/keystone.conf
+SSL_PATH=/etc/ssl/
+
+MYSQL_ROOT_PASS=openstack
+MYSQL_KEYSTONE_PASS=openstack
+mysql -uroot -p$MYSQL_ROOT_PASS -e 'CREATE DATABASE keystone;'
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY '$MYSQL_KEYSTONE_PASS';"
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY '$MYSQL_KEYSTONE_PASS';"
+
+sudo sed -i "s#^connection.*#connection = mysql://keystone:${MYSQL_KEYSTONE_PASS}@${MYSQL_HOST}/keystone#" ${KEYSTONE_CONF}
+sudo sed -i 's/^#admin_token.*/admin_token = ADMIN/' ${KEYSTONE_CONF}
+sudo sed -i 's,^#log_dir.*,log_dir = /var/log/keystone,' ${KEYSTONE_CONF}
+
+sudo echo "use_syslog = True" >> ${KEYSTONE_CONF}
+sudo echo "syslog_log_facility = LOG_LOCAL0" >> ${KEYSTONE_CONF}
+
+sudo apt-get -y install python-keystoneclient
+
+sudo keystone-manage ssl_setup --keystone-user keystone --keystone-group keystone
+echo "
+[ssl]
+enable = True
+certfile = /etc/keystone/ssl/certs/keystone.pem
+keyfile = /etc/keystone/ssl/private/keystonekey.pem
+ca_certs = /etc/keystone/ssl/certs/ca.pem
+cert_subject=/C=US/ST=Unset/L=Unset/O=Unset/CN=${MNG_IP}
+ca_key = /etc/keystone/ssl/certs/cakey.pem" | sudo tee -a ${KEYSTONE_CONF}
+
+rm -rf /etc/keystone/ssl
+sudo keystone-manage ssl_setup --keystone-user keystone --keystone-group keystone
+sudo cp /etc/keystone/ssl/certs/ca.pem /etc/ssl/certs/ca.pem
+sudo c_rehash /etc/ssl/certs/ca.pem
+sudo cp /etc/keystone/ssl/certs/ca.pem ${INSTALL_DIR}/ca.pem
+sudo cp /etc/keystone/ssl/certs/cakey.pem ${INSTALL_DIR}/cakey.pem
+
+
+echo "[+] INSTALLING KEYSTONE"
+sudo stop keystone
+sudo start keystone
+sudo keystone-manage db_sync
+
+export ENDPOINT=${PUBLIC_IP}
+export INT_ENDPOINT=${INT_IP}
+export ADMIN_ENDPOINT=${ADMIN_IP}
+export SERVICE_TOKEN=ADMIN
+export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
+export PASSWORD=openstack
+
+# admin role
+keystonerole-create --name admin
+
+# Member role
+keystonerole-create --name Member
+
+keystonerole-list
+
+keystonetenant-create --name ostest --description "Default ostest Tenant" --enabled true
+
+TENANT_ID=$(keystonetenant-list | awk '/\ ostest\ / {print $2}')
+
+keystoneuser-create --name admin --tenant_id $TENANT_ID --pass $PASSWORD --email root@localhost --enabled true
+
+TENANT_ID=$(keystonetenant-list | awk '/\ ostest\ / {print $2}')
+
+ROLE_ID=$(keystonerole-list | awk '/\ admin\ / {print $2}')
+
+USER_ID=$(keystoneuser-list | awk '/\ admin\ / {print $2}')
+
+keystoneuser-role-add --user $USER_ID --role $ROLE_ID --tenant_id $TENANT_ID
+
+# Create the user
+PASSWORD=openstack
+keystoneuser-create --name demo --tenant_id $TENANT_ID --pass $PASSWORD --email demo@localhost --enabled true
+
+TENANT_ID=$(keystonetenant-list | awk '/\ ostest\ / {print $2}')
+
+ROLE_ID=$(keystonerole-list | awk '/\ Member\ / {print $2}')
+
+USER_ID=$(keystoneuser-list | awk '/\ demo\ / {print $2}')
+
+# Assign the Member role to the demo user in ostest
+keystoneuser-role-add --user $USER_ID --role $ROLE_ID --tenant_id $TENANT_ID
+
+#create_endpoints
+
+export ENDPOINT=${PUBLIC_IP}
+export INT_ENDPOINT=${INT_IP}
+export ADMIN_ENDPOINT=${ADMIN_IP}
+export SERVICE_TOKEN=ADMIN
+export SERVICE_ENDPOINT=https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
+export PASSWORD=openstack
+export OS_CACERT=${INSTALL_DIR}/ca.pem
+export OS_KEY=${INSTALL_DIR}/cakey.pem
+
+ # OpenStack Compute Nova API Endpoint
+keystoneservice-create --name nova --type compute --description 'OpenStack Compute Service'
+
+# OpenStack Compute EC2 API Endpoint
+keystoneservice-create --name ec2 --type ec2 --description 'EC2 Service'
+
+# Glance Image Service Endpoint
+keystoneservice-create --name glance --type image --description 'OpenStack Image Service'
+
+# Keystone Identity Service Endpoint
+keystoneservice-create --name keystone --type identity --description 'OpenStack Identity Service'
+
+# Cinder Block Storage Endpoint
+keystoneservice-create --name volume --type volume --description 'Volume Service'
+
+# Neutron Network Service Endpoint
+keystoneservice-create --name network --type network --description 'Neutron Network Service'
+
+# OpenStack Compute Nova API
+NOVA_SERVICE_ID=$(keystoneservice-list | awk '/\ nova\ / {print $2}')
+
+PUBLIC="http://$ENDPOINT:8774/v2/\$(tenant_id)s"
+ADMIN="http://$ADMIN_ENDPOINT:8774/v2/\$(tenant_id)s"
+INTERNAL="http://$INT_ENDPOINT:8774/v2/\$(tenant_id)s"
+
+keystoneendpoint-create --region regionOne --service_id $NOVA_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+
+# OpenStack Compute EC2 API
+EC2_SERVICE_ID=$(keystoneservice-list | awk '/\ ec2\ / {print $2}')
+
+PUBLIC="http://$ENDPOINT:8773/services/Cloud"
+ADMIN="http://$ADMIN_ENDPOINT:8773/services/Admin"
+INTERNAL="http://$INT_ENDPOINT:8773/services/Cloud"
+
+keystoneendpoint-create --region regionOne --service_id $EC2_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+
+# Glance Image Service
+GLANCE_SERVICE_ID=$(keystoneservice-list | awk '/\ glance\ / {print $2}')
+
+PUBLIC="http://$ENDPOINT:9292/v2"
+ADMIN="http://$ADMIN_ENDPOINT:9292/v2"
+INTERNAL="http://$INT_ENDPOINT:9292/v2"
+
+keystoneendpoint-create --region regionOne --service_id $GLANCE_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+
+# Keystone OpenStack Identity Service
+KEYSTONE_SERVICE_ID=$(keystoneservice-list | awk '/\ keystone\ / {print $2}')
+
+PUBLIC="https://$ENDPOINT:5000/v2.0"
+ADMIN="https://$ADMIN_ENDPOINT:35357/v2.0"
+INTERNAL="https://$INT_ENDPOINT:5000/v2.0"
+
+keystoneendpoint-create --region regionOne --service_id $KEYSTONE_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+
+# Cinder Block Storage Service
+CINDER_SERVICE_ID=$(keystoneservice-list | awk '/\ volume\ / {print $2}')
+
+#Dynamically determine first three octets if user specifies alternative IP ranges.Fourth octet still hardcoded
+CINDER_ENDPOINT=${CONTROLLER_HOST}
+PUBLIC="http://$CINDER_ENDPOINT:8776/v1/%(tenant_id)s"
+ADMIN=$PUBLIC
+INTERNAL=$PUBLIC
+
+keystoneendpoint-create --region regionOne --service_id $CINDER_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+
+# Neutron Network Service
+NEUTRON_SERVICE_ID=$(keystoneservice-list | awk '/\ network\ / {print $2}')
+
+PUBLIC="http://$ENDPOINT:9696"
+ADMIN="http://$ADMIN_ENDPOINT:9696"
+INTERNAL="http://$INT_ENDPOINT:9696"
+
+keystoneendpoint-create --region regionOne --service_id $NEUTRON_SERVICE_ID --publicurl $PUBLIC --adminurl $ADMIN --internalurl $INTERNAL
+
+
+# Service Tenant
+keystonetenant-create --name service --description "Service Tenant" --enabled true
+
+SERVICE_TENANT_ID=$(keystonetenant-list | awk '/\ service\ / {print $2}')
+
+keystoneuser-create --name nova --pass nova --tenant_id $SERVICE_TENANT_ID --email nova@localhost --enabled true
+
+keystoneuser-create --name glance --pass glance --tenant_id $SERVICE_TENANT_ID --email glance@localhost --enabled true
+
+keystoneuser-create --name keystone --pass keystone --tenant_id $SERVICE_TENANT_ID --email keystone@localhost --enabled true
+
+keystoneuser-create --name cinder --pass cinder --tenant_id $SERVICE_TENANT_ID --email cinder@localhost --enabled true
+
+keystoneuser-create --name neutron --pass neutron --tenant_id $SERVICE_TENANT_ID --email neutron@localhost --enabled true
+
+# Get the nova user id
+NOVA_USER_ID=$(keystoneuser-list | awk '/\ nova\ / {print $2}')
+
+# Get the admin role id
+ADMIN_ROLE_ID=$(keystonerole-list | awk '/\ admin\ / {print $2}')
+
+# Assign the nova user the admin role in service tenant
+keystoneuser-role-add --user $NOVA_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+
+# Get the glance user id
+GLANCE_USER_ID=$(keystoneuser-list | awk '/\ glance\ / {print $2}')
+
+# Assign the glance user the admin role in service tenant
+keystoneuser-role-add --user $GLANCE_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+
+# Get the keystone user id
+KEYSTONE_USER_ID=$(keystoneuser-list | awk '/\ keystone\ / {print $2}')
+
+# Assign the keystone user the admin role in service tenant
+keystoneuser-role-add --user $KEYSTONE_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+
+# Get the cinder user id
+CINDER_USER_ID=$(keystoneuser-list | awk '/\ cinder \ / {print $2}')
+
+# Assign the cinder user the admin role in service tenant
+keystoneuser-role-add --user $CINDER_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+
+# Create neutron service user in the services tenant
+NEUTRON_USER_ID=$(keystoneuser-list | awk '/\ neutron \ / {print $2}')
+
+# Grant admin role to neutron service user
+keystoneuser-role-add --user $NEUTRON_USER_ID --role $ADMIN_ROLE_ID --tenant_id $SERVICE_TENANT_ID
+
+##########
+# GLANCE #
+##########
+
+# Install Service
+sudo apt-get update
+sudo apt-get -y install glance
+sudo apt-get -y install python-glanceclient
+
+# Config Files
+GLANCE_API_CONF=/etc/glance/glance-api.conf
+GLANCE_REGISTRY_CONF=/etc/glance/glance-registry.conf
+
+SERVICE_TENANT=service
+GLANCE_SERVICE_USER=glance
+GLANCE_SERVICE_PASS=glance
+
+# Create database
+MYSQL_ROOT_PASS=openstack
+MYSQL_GLANCE_PASS=openstack
+mysql -uroot -p$MYSQL_ROOT_PASS -e 'CREATE DATABASE glance;'
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY '$MYSQL_GLANCE_PASS';"
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY '$MYSQL_GLANCE_PASS';"
+
+## /etc/glance/glance-api.conf
+echo "[DEFAULT]
+default_store = file
+bind_host = 0.0.0.0
+bind_port = 9292
+log_file = /var/log/glance/api.log
+backlog = 4096
+registry_host = 0.0.0.0
+registry_port = 9191
+registry_client_protocol = http
+rabbit_host = localhost
+rabbit_port = 5672
+rabbit_use_ssl = false
+rabbit_userid = guest
+rabbit_password = guest
+rabbit_virtual_host = /
+rabbit_notification_exchange = glance
+rabbit_notification_topic = notifications
+rabbit_durable_queues = False
+
+delayed_delete = False
+scrub_time = 43200
+scrubber_datadir = /var/lib/glance/scrubber
+image_cache_dir = /var/lib/glance/image-cache/
+
+[database]
+backend = sqlalchemy
+connection = mysql://glance:openstack@${MNG_IP}/glance
+
+[keystone_authtoken]
+identity_uri = https://${MNG_IP}:35357
+admin_tenant_name = service
+admin_user = glance
+admin_password = glance
+revocation_cache_time = 10
+insecure = True
+
+[glance_store]
+filesystem_store_datadir = /var/lib/glance/images/
+
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+
+[paste_deploy]
+config_file = /etc/glance/glance-api-paste.ini
+flavor = keystone
+" | sudo tee ${GLANCE_API_CONF}
+
+
+## /etc/glance/glance-registry.conf
+
+echo "[DEFAULT]
+bind_host = 0.0.0.0
+bind_port = 9191
+log_file = /var/log/glance/registry.log
+backlog = 4096
+api_limit_max = 1000
+limit_param_default = 25
+
+rabbit_host = localhost
+rabbit_port = 5672
+rabbit_use_ssl = false
+rabbit_userid = guest
+rabbit_password = guest
+rabbit_virtual_host = /
+rabbit_notification_exchange = glance
+rabbit_notification_topic = notifications
+rabbit_durable_queues = False
+
+[database]
+sqlite_db = /var/lib/glance/glance.sqlite
+backend = sqlalchemy
+connection = mysql://glance:openstack@${MNG_IP}/glance
+
+[keystone_authtoken]
+identity_uri = https://${MNG_IP}:35357
+admin_tenant_name = service
+admin_user = glance
+admin_password = glance
+insecure = True
+
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+
+[paste_deploy]
+config_file = /etc/glance/glance-registry-paste.ini
+flavor = keystone
+" | sudo tee ${GLANCE_REGISTRY_CONF}
+
+sudo stop glance-registry
+sudo start glance-registry
+sudo stop glance-api
+sudo start glance-api
+
+sudo glance-manage db_sync
+
+# Get some images and upload
+export OS_TENANT_NAME=ostest
+export OS_USERNAME=admin
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=https://${MNG_IP}:5000/v2.0/
+export OS_NO_CACHE=1
+
+#sudo apt-get -y install wget
+
+echo "[+] Uploading images to Glance. Please wait."
+
+# Get the images
+# First check host
+CIRROS="cirros-0.3.0-x86_64-disk.img"
+UBUNTU="trusty-server-cloudimg-amd64-disk1.img"
+
+if [[ ! -f ${INSTALL_DIR}/${CIRROS} ]]
+then
+# Download then store on local host for next time
+	wget --quiet https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img -O ${INSTALL_DIR}/${CIRROS}
+fi
+
+if [[ ! -f ${INSTALL_DIR}/${UBUNTU} ]]
+then
+# Download then store on local host for next time
+	wget --quiet http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img -O ${INSTALL_DIR}/${UBUNTU}
+fi
+
+# Warning: usingdue to self-signed cert
+glanceimage-create --name='trusty-image' --disk-format=qcow2 --container-format=bare --public < ${INSTALL_DIR}/${UBUNTU}
+glanceimage-create --name='cirros-image' --disk-format=qcow2 --container-format=bare --public < ${INSTALL_DIR}/${CIRROS}
+
+# glanceimage-create --name='cirros-image' --disk-format=qcow2 --container-format=bare --public < /home/ubuntu/junoscript/cirros-0.3.0-x86_64-disk.img
+
+echo "[+] Image upload done."
+
+
+#######################
+# Chapter 3 Neutron #
+# See also network.sh #
+#######################
+
+# Create database
+MYSQL_ROOT_PASS=openstack
+MYSQL_NEUTRON_PASS=openstack
+NEUTRON_SERVICE_USER=neutron
+NEUTRON_SERVICE_PASS=neutron
+NOVA_SERVICE_USER=nova
+NOVA_SERVICE_PASS=nova
+
+mysql -uroot -p$MYSQL_ROOT_PASS -e 'CREATE DATABASE neutron;'
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY '$MYSQL_NEUTRON_PASS';"
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY '$MYSQL_NEUTRON_PASS';"
+
+# List the new user and role assigment
+keystone user-list --tenant-id $SERVICE_TENANT_ID
+keystone user-role-list --tenant-id $SERVICE_TENANT_ID --user-id $NEUTRON_USER_ID
+
+sudo apt-get -y install neutron-server neutron-plugin-ml2
+
+# Config Files
+NEUTRON_CONF=/etc/neutron/neutron.conf
+NEUTRON_PLUGIN_ML2_CONF_INI=/etc/neutron/plugins/ml2/ml2_conf.ini
+
+# Configure Neutron
+cat > ${NEUTRON_CONF}<<EOF
+[DEFAULT]
+verbose = True
+debug = True
+state_path = /var/lib/neutron
+lock_path = \$state_path/lock
+log_dir = /var/log/neutron
+
+bind_host = 0.0.0.0
+bind_port = 9696
+
+# Plugin
+core_plugin = ml2
+#service_plugins = router, firewall
+service_plugins = router, lbaas
+allow_overlapping_ips = True
+#router_distributed = True
+router_distributed = False
+
+# auth
+auth_strategy = keystone
+
+# RPC configuration options. Defined in rpc __init__
+# The messaging module to use, defaults to kombu.
+rpc_backend = neutron.openstack.common.rpc.impl_kombu
+
+rabbit_host = ${CONTROLLER_HOST}
+rabbit_password = guest
+rabbit_port = 5672
+rabbit_userid = guest
+rabbit_virtual_host = /
+rabbit_ha_queues = false
+
+# ============ Notification System Options =====================
+notification_driver = neutron.openstack.common.notifier.rpc_notifier
+
+# ======== neutron nova interactions ==========
+notify_nova_on_port_status_changes = True
+notify_nova_on_port_data_changes = True
+nova_url = http://${CONTROLLER_HOST}:8774/v2
+nova_region_name = regionOne
+nova_admin_username = ${NOVA_SERVICE_USER}
+nova_admin_tenant_id = ${SERVICE_TENANT_ID}
+nova_admin_password = ${NOVA_SERVICE_PASS}
+nova_admin_auth_url = https://${KEYSTONE_ADMIN_ENDPOINT}:35357/v2.0
+nova_ca_certificates_file = /etc/ssl/certs/ca.pem
+# nova_api_insecure = True
+
+[quotas]
+# quota_driver = neutron.db.quota_db.DbQuotaDriver
+# quota_items = network,subnet,port
+# default_quota = -1
+# quota_network = 10
+# quota_subnet = 10
+# quota_port = 50
+# quota_security_group = 10
+# quota_security_group_rule = 100
+# quota_vip = 10
+# quota_pool = 10
+# quota_member = -1
+# quota_health_monitor = -1
+# quota_router = 10
+# quota_floatingip = 50
+
+[agent]
+root_helper = sudo
+
+[keystone_authtoken]
+auth_host = ${KEYSTONE_ADMIN_ENDPOINT}
+auth_port = 35357
+auth_protocol = https
+admin_tenant_name = ${SERVICE_TENANT}
+admin_user = ${NEUTRON_SERVICE_USER}
+admin_password = ${NEUTRON_SERVICE_PASS}
+signing_dir = \$state_path/keystone-signing
+#auth_uri = http://${MNG_IP}:35357/
+insecure = True
+
+[database]
+connection = mysql://neutron:${MYSQL_NEUTRON_PASS}@${CONTROLLER_HOST}/neutron
+
+[service_providers]
+service_provider=LOADBALANCER:Haproxy:neutron.services.loadbalancer.drivers.haproxy.plugin_driver.HaproxyOnHostPluginDriver:default
+#service_provider=VPN:openswan:neutron.services.vpn.service_drivers.ipsec.IPsecVPNDriver:default
+#service_provider=FIREWALL:Iptables:neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver:default
+
+EOF
+
+
+cat > ${NEUTRON_PLUGIN_ML2_CONF_INI} <<EOF
+[ml2]
+type_drivers = vxlan,gre
+tenant_network_types = vxlan
+mechanism_drivers = openvswitch,l2population
+
+[ml2_type_gre]
+tunnel_id_ranges = 1:1000
+
+[ml2_type_vxlan]
+vxlan_group =
+vni_ranges = 1:1000
+
+[vxlan]
+enable_vxlan = True
+vxlan_group =
+l2_population = True
+
+
+[agent]
+tunnel_types = vxlan
+## VXLAN udp port
+# This is set for the vxlan port and while this
+# is being set here it's ignored because
+# the port is assigned by the kernel
+vxlan_udp_port = 4789
+
+
+[securitygroup]
+firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
+enable_security_group = True
+EOF
+
+echo "
+Defaults !requiretty
+neutron ALL=(ALL:ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+
+
+sudo neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade juno
+
+sudo service neutron-server stop
+sudo service neutron-server start
+
+
+
+
+
+########################
+# Chapter 4 - Compute#
+# See also compute.sh#
+########################
+
+# Create database
+MYSQL_HOST=${MNG_IP}
+GLANCE_HOST=${MNG_IP}
+KEYSTONE_ENDPOINT=${MNG_IP}
+SERVICE_TENANT=service
+NOVA_SERVICE_USER=nova
+NOVA_SERVICE_PASS=nova
+
+MYSQL_ROOT_PASS=openstack
+MYSQL_NOVA_PASS=openstack
+mysql -uroot -p$MYSQL_ROOT_PASS -e 'CREATE DATABASE nova;'
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY '$MYSQL_NOVA_PASS';"
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY '$MYSQL_NOVA_PASS';"
+
+sudo apt-get -y install rabbitmq-server nova-novncproxy novnc nova-api nova-ajax-console-proxy nova-cert nova-conductor nova-consoleauth nova-doc nova-scheduler python-novaclient dnsmasq nova-objectstore
+
+# Make ourselves a new rabbit.conf
+sudo cat > /etc/rabbitmq/rabbitmq.config <<EOF
+[{rabbit, [{loopback_users, []}]}].
+EOF
+
+sudo cat > /etc/rabbitmq/rabbitmq-env.conf <<EOF
+RABBITMQ_NODE_PORT=5672
+EOF
+
+sudo /etc/init.d/rabbitmq-server restart
+
+# Clobber the nova.conf file with the following
+NOVA_CONF=/etc/nova/nova.conf
+
+# Qemu or KVM (VT-x/AMD-v)
+KVM=$(egrep '(vmx|svm)' /proc/cpuinfo)
+if [[ ${KVM} ]]
+then
+LIBVIRT=kvm
+else
+LIBVIRT=qemu
+fi
+
+cp ${NOVA_CONF}{,.bak}
+cat > ${NOVA_CONF} <<EOF
+[DEFAULT]
+dhcpbridge_flagfile=/etc/nova/nova.conf
+dhcpbridge=/usr/bin/nova-dhcpbridge
+logdir=/var/log/nova
+state_path=/var/lib/nova
+lock_path=/var/lock/nova
+root_helper=sudo nova-rootwrap /etc/nova/rootwrap.conf
+verbose=True
+
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+
+api_paste_config=/etc/nova/api-paste.ini
+enabled_apis=ec2,osapi_compute,metadata
+
+# Libvirt and Virtualization
+libvirt_use_virtio_for_bridges=True
+connection_type=libvirt
+libvirt_type=${LIBVIRT}
+
+# Database
+sql_connection=mysql://nova:${MYSQL_NOVA_PASS}@${MYSQL_HOST}/nova
+
+# Messaging
+rabbit_host=${MYSQL_HOST}
+
+# EC2 API Flags
+ec2_host=${MYSQL_HOST}
+ec2_dmz_host=${MYSQL_HOST}
+ec2_private_dns_show_ip=True
+
+# Network settings
+network_api_class=nova.network.neutronv2.api.API
+neutron_url=http://${MNG_IP}:9696
+neutron_auth_strategy=keystone
+neutron_admin_tenant_name=service
+neutron_admin_username=neutron
+neutron_admin_password=neutron
+neutron_admin_auth_url=https://${MNG_IP}:5000/v2.0
+libvirt_vif_driver=nova.virt.libvirt.vif.LibvirtHybridOVSBridgeDriver
+linuxnet_interface_driver=nova.network.linux_net.LinuxOVSInterfaceDriver
+#firewall_driver=nova.virt.libvirt.firewall.IptablesFirewallDriver
+security_group_api=neutron
+firewall_driver=nova.virt.firewall.NoopFirewallDriver
+neutron_ca_certificates_file=/etc/ssl/certs/ca.pem
+
+service_neutron_metadata_proxy=true
+neutron_metadata_proxy_shared_secret=foo
+
+#Metadata
+metadata_host = ${CONTROLLER_HOST}
+metadata_listen = ${CONTROLLER_HOST}
+metadata_listen_port = 8775
+
+# Cinder #
+volume_driver=nova.volume.driver.ISCSIDriver
+enabled_apis=ec2,osapi_compute,metadata
+volume_api_class=nova.volume.cinder.API
+iscsi_helper=tgtadm
+iscsi_ip_address=${CINDER_ENDPOINT}
+
+# Images
+image_service=nova.image.glance.GlanceImageService
+glance_api_servers=${GLANCE_HOST}:9292
+
+# Scheduler
+scheduler_default_filters=AllHostsFilter
+
+# Auth
+auth_strategy=keystone
+keystone_ec2_url=https://${KEYSTONE_ENDPOINT}:5000/v2.0/ec2tokens
+
+# NoVNC
+novnc_enabled=true
+novncproxy_host=${MNG_IP}
+novncproxy_base_url=http://${MNG_IP}:6080/vnc_auto.html
+novncproxy_port=6080
+
+xvpvncproxy_port=6081
+xvpvncproxy_host=${MNG_IP}
+xvpvncproxy_base_url=http://${MNG_IP}:6081/console
+
+vncserver_proxyclient_address=${MNG_IP}
+vncserver_listen=0.0.0.0
+
+[keystone_authtoken]
+auth_host = ${KEYSTONE_ADMIN_ENDPOINT}
+auth_port = 35357
+auth_protocol = https
+admin_tenant_name = ${SERVICE_TENANT}
+admin_user = ${NOVA_SERVICE_USER}
+admin_password = ${NOVA_SERVICE_PASS}
+insecure = True
+
+EOF
+
+sudo chmod 0640 $NOVA_CONF
+sudo chown nova:nova $NOVA_CONF
+
+sudo nova-manage db sync
+
+sudo stop nova-api
+sudo stop nova-scheduler
+sudo stop nova-novncproxy
+sudo stop nova-consoleauth
+sudo stop nova-conductor
+sudo stop nova-cert
+
+
+sudo start nova-api
+sudo start nova-scheduler
+sudo start nova-conductor
+sudo start nova-cert
+sudo start nova-consoleauth
+sudo start nova-novncproxy
+
+
+
+
+
+##########
+# Cinder #
+##########
+
+# Install the DB
+MYSQL_ROOT_PASS=openstack
+MYSQL_CINDER_PASS=openstack
+mysql -uroot -p$MYSQL_ROOT_PASS -e 'CREATE DATABASE cinder;'
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'localhost' IDENTIFIED BY '$MYSQL_CINDER_PASS';"
+mysql -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' IDENTIFIED BY '$MYSQL_CINDER_PASS';"
+
+# Install some deps
+sudo apt-get install -y linux-headers-`uname -r` build-essential python-mysqldb xfsprogs
+
+echo "[+] Installing Cinder"
+sudo apt-get install -y cinder-common cinder-api cinder-scheduler cinder-volume python-cinderclient
+
+# Install Cinder Things
+sudo apt-get install -y tgt open-iscsi
+# Restart services
+sudo service open-iscsi start
+#sudo service open-iscsi restart
+
+# SKIP on real server OR just maintain a small block ~20G
+dd if=/dev/zero of=cinder-volumes bs=1 count=0 seek=20G
+
+losetup /dev/loop2 cinder-volumes
+pvcreate /dev/loop2
+vgcreate cinder-volumes /dev/loop2
+glance_port=9292
+
+# Configure Cinder
+
+# Config Files
+CINDER_CONF=/etc/cinder/cinder.conf
+SERVICE_TENANT=service
+CINDER_SERVICE_USER=cinder
+CINDER_SERVICE_PASS=cinder
+MYSQL_CINDER_PASS=openstack
+
+
+# /etc/cinder/api-paste.ini
+sudo sed -i 's/127.0.0.1/'${CONTROLLER_HOST}'/g' /etc/cinder/api-paste.ini
+sudo sed -i 's/%SERVICE_TENANT_NAME%/service/g' /etc/cinder/api-paste.ini
+sudo sed -i 's/%SERVICE_USER%/cinder/g' /etc/cinder/api-paste.ini
+sudo sed -i 's/%SERVICE_PASSWORD%/cinder/g' /etc/cinder/api-paste.ini
+
+
+cat > ${CINDER_CONF} <<EOF
+[DEFAULT]
+rootwrap_config=/etc/cinder/rootwrap.conf
+api_paste_config = /etc/cinder/api-paste.ini
+iscsi_helper=tgtadm
+iscsi_ip_address=${CONTROLLER_HOST}
+volume_name_template = volume-%s
+volume_group = cinder-volumes
+verbose = True
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+
+auth_strategy = keystone
+
+rabbit_host = ${CONTROLLER_HOST}
+rabbit_port = 5672
+state_path = /var/lib/cinder/
+
+# Default glance port (integer value)
+glance_port=9292
+glance_api_servers=${CONTROLLER_HOST}:${glance_port}
+glance_api_version=1
+glance_num_retries=0
+glance_api_insecure=True
+
+scheduler_topic=cinder-scheduler
+volume-topic=cinder-volume
+backup-topic=cinder-backup
+
+scheduler_manager=cinder.scheduler.manager.SchedulerManager
+
+[database]
+backend=sqlalchemy
+connection = mysql://cinder:${MYSQL_CINDER_PASS}@${CONTROLLER_HOST}/cinder
+
+[keystone_authtoken]
+auth_host = ${KEYSTONE_ADMIN_ENDPOINT}
+auth_port = 35357
+auth_protocol = https
+auth_uri = https://${KEYSTONE_ENDPOINT}:5000/
+admin_tenant_name = ${SERVICE_TENANT}
+admin_user = ${CINDER_SERVICE_USER}
+admin_password = ${CINDER_SERVICE_PASS}
+insecure = True
+
+EOF
+
+sleep 5
+
+
+# Sync DB
+cinder-manage db sync
+
+# Restart services
+cd /etc/init/; for c in $( ls cinder-* | cut -d '.' -f1) ; do sudo stop $c; start $c; done
+
+cat ${INSTALL_DIR}/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
+
+# Logging
+sudo stop rsyslog
+sudo cp ${INSTALL_DIR}/rsyslog.conf /etc/rsyslog.conf
+sudo echo "*.* @@controller:5140" >> /etc/rsyslog.d/50-default.conf
+sudo service rsyslog restart
+
+# Copy openrc file to local instance vagrant root folder in case of loss of file share
+sudo cp ${INSTALL_DIR}/openrc ${HOME_DIR} 
+
+
+
+###########
+# Horizon #
+###########
+
+# Install dependencies
+sudo apt-get install -y memcached
+
+# Install the dashboard (horizon)
+sudo apt-get install -y openstack-dashboard
+sudo dpkg --purge openstack-dashboard-ubuntu-theme
+
+cat > /etc/openstack-dashboard/local_settings.py << EOF
+import os
+
+from django.utils.translation import ugettext_lazy as _
+
+from openstack_dashboard import exceptions
+
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
+
+# Default OpenStack Dashboard configuration.
+HORIZON_CONFIG = {
+'dashboards': ('project', 'admin', 'settings',),
+'default_dashboard': 'project',
+'user_home': 'openstack_dashboard.views.get_user_home',
+'ajax_queue_limit': 10,
+'auto_fade_alerts': {
+'delay': 3000,
+'fade_duration': 1500,
+'types': ['alert-success', 'alert-info']
+},
+'help_url': "http://docs.openstack.org",
+'exceptions': {'recoverable': exceptions.RECOVERABLE,
+ 'not_found': exceptions.NOT_FOUND,
+ 'unauthorized': exceptions.UNAUTHORIZED},
+'angular_modules': [],
+'js_files': [],
+}
+
+LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
+
+# Set custom secret key:
+# You can either set it to a specific value or you can let horizon generate a
+# default secret key that is unique on this machine, e.i. regardless of the
+# amount of Python WSGI workers (if used behind Apache+mod_wsgi): However, there
+# may be situations where you would want to set this explicitly, e.g. when
+# multiple dashboard instances are distributed on different machines (usually
+# behind a load-balancer). Either you have to make sure that a session gets all
+# requests routed to the same dashboard instance or you set the same SECRET_KEY
+# for all of them.
+from horizon.utils import secret_key
+SECRET_KEY = secret_key.generate_or_read_from_file('/var/lib/openstack-dashboard/secret_key')
+
+# We recommend you use memcached for development; otherwise after every reload
+# of the django development server, you will have to login again. To use
+# memcached set CACHES to something like
+CACHES = {
+ 'default': {
+ 'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+ 'LOCATION': '127.0.0.1:11211',
+ }
+}
+
+#CACHES = {
+#'default': {
+#'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+#}
+#}
+
+# Send email to the console by default
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Or send them to /dev/null
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+# Configure these for your outgoing email host
+# EMAIL_HOST = 'smtp.my-company.com'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'djangomail'
+# EMAIL_HOST_PASSWORD = 'top-secret!'
+
+# For multiple regions uncomment this configuration, and add (endpoint, title).
+# AVAILABLE_REGIONS = [
+# ('http://cluster1.example.com:5000/v2.0', 'cluster1'),
+# ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
+# ]
+
+OPENSTACK_HOST = "${MNG_IP}"
+OPENSTACK_KEYSTONE_URL = "https://%s:5000/v2.0" % OPENSTACK_HOST
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
+
+# Disable SSL certificate checks (useful for self-signed certificates):
+OPENSTACK_SSL_NO_VERIFY = True
+
+# The CA certificate to use to verify SSL connections
+# OPENSTACK_SSL_CACERT = '/path/to/cacert.pem'
+
+# The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the
+# capabilities of the auth backend for Keystone.
+# If Keystone has been configured to use LDAP as the auth backend then set
+# can_edit_user to False and name to 'ldap'.
+#
+# TODO(tres): Remove these once Keystone has an API to identify auth backend.
+OPENSTACK_KEYSTONE_BACKEND = {
+'name': 'native',
+'can_edit_user': True,
+'can_edit_group': True,
+'can_edit_project': True,
+'can_edit_domain': True,
+'can_edit_role': True
+}
+
+#Setting this to True, will add a new "Retrieve Password" action on instance,
+#allowing Admin session password retrieval/decryption.
+#OPENSTACK_ENABLE_PASSWORD_RETRIEVE = False
+
+# The Xen Hypervisor has the ability to set the mount point for volumes
+# attached to instances (other Hypervisors currently do not). Setting
+# can_set_mount_point to True will add the option to set the mount point
+# from the UI.
+OPENSTACK_HYPERVISOR_FEATURES = {
+'can_set_mount_point': False,
+'can_set_password': False,
+}
+
+# The OPENSTACK_CINDER_FEATURES settings can be used to enable optional
+# services provided by cinder that is not exposed by its extension API.
+OPENSTACK_CINDER_FEATURES = {
+'enable_backup': False,
+}
+
+# The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
+# services provided by neutron. Options currently available are load
+# balancer service, security groups, quotas, VPN service.
+OPENSTACK_NEUTRON_NETWORK = {
+'enable_router': True,
+'enable_quotas': True,
+'enable_ipv6': True,
+'enable_distributed_router': False,
+'enable_ha_router': False,
+'enable_lb': True,
+'enable_firewall': True,
+'enable_vpn': True,
+# The profile_support option is used to detect if an external router can be
+# configured via the dashboard. When using specific plugins the
+# profile_support can be turned on if needed.
+'profile_support': None,
+#'profile_support': 'cisco',
+# Set which provider network types are supported. Only the network types
+# in this list will be available to choose from when creating a network.
+# Network types include local, flat, vlan, gre, and vxlan.
+'supported_provider_types': ['*'],
+}
+
+
+# The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for
+# image custom property attributes that appear on image detail pages.
+IMAGE_CUSTOM_PROPERTY_TITLES = {
+"architecture": _("Architecture"),
+"kernel_id": _("Kernel ID"),
+"ramdisk_id": _("Ramdisk ID"),
+"image_state": _("Euca2ools state"),
+"project_id": _("Project ID"),
+"image_type": _("Image Type")
+}
+
+# The IMAGE_RESERVED_CUSTOM_PROPERTIES setting is used to specify which image
+# custom properties should not be displayed in the Image Custom Properties
+# table.
+IMAGE_RESERVED_CUSTOM_PROPERTIES = []
+
+# The number of objects (Swift containers/objects or images) to display
+# on a single page before providing a paging element (a "more" link)
+# to paginate results.
+API_RESULT_LIMIT = 1000
+API_RESULT_PAGE_SIZE = 20
+
+# The timezone of the server. This should correspond with the timezone
+# of your entire OpenStack installation, and hopefully be in UTC.
+TIME_ZONE = "UTC"
+
+LOGGING = {
+'version': 1,
+# When set to True this will disable all logging except
+# for loggers specified in this configuration dictionary. Note that
+# if nothing is specified here and disable_existing_loggers is True,
+# django.db.backends will still log unless it is disabled explicitly.
+'disable_existing_loggers': False,
+'handlers': {
+'null': {
+'level': 'DEBUG',
+'class': 'django.utils.log.NullHandler',
+},
+'console': {
+# Set the level to "DEBUG" for verbose output logging.
+'level': 'INFO',
+'class': 'logging.StreamHandler',
+},
+},
+'loggers': {
+# Logging from django.db.backends is VERY verbose, send to null
+# by default.
+'django.db.backends': {
+'handlers': ['null'],
+'propagate': False,
+},
+'requests': {
+'handlers': ['null'],
+'propagate': False,
+},
+'horizon': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'openstack_dashboard': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'novaclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'cinderclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'keystoneclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'glanceclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'neutronclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'heatclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'ceilometerclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'troveclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'swiftclient': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'openstack_auth': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'nose.plugins.manager': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'django': {
+'handlers': ['console'],
+'level': 'DEBUG',
+'propagate': False,
+},
+'iso8601': {
+'handlers': ['null'],
+'propagate': False,
+},
+'scss': {
+'handlers': ['null'],
+'propagate': False,
+},
+}
+}
+
+# 'direction' should not be specified for all_tcp/udp/icmp.
+# It is specified in the form.
+SECURITY_GROUP_RULES = {
+'all_tcp': {
+'name': _('All TCP'),
+'ip_protocol': 'tcp',
+'from_port': '1',
+'to_port': '65535',
+},
+'all_udp': {
+'name': _('All UDP'),
+'ip_protocol': 'udp',
+'from_port': '1',
+'to_port': '65535',
+},
+'all_icmp': {
+'name': _('All ICMP'),
+'ip_protocol': 'icmp',
+'from_port': '-1',
+'to_port': '-1',
+},
+'ssh': {
+'name': 'SSH',
+'ip_protocol': 'tcp',
+'from_port': '22',
+'to_port': '22',
+},
+'smtp': {
+'name': 'SMTP',
+'ip_protocol': 'tcp',
+'from_port': '25',
+'to_port': '25',
+},
+'dns': {
+'name': 'DNS',
+'ip_protocol': 'tcp',
+'from_port': '53',
+'to_port': '53',
+},
+'http': {
+'name': 'HTTP',
+'ip_protocol': 'tcp',
+'from_port': '80',
+'to_port': '80',
+},
+'pop3': {
+'name': 'POP3',
+'ip_protocol': 'tcp',
+'from_port': '110',
+'to_port': '110',
+},
+'imap': {
+'name': 'IMAP',
+'ip_protocol': 'tcp',
+'from_port': '143',
+'to_port': '143',
+},
+'ldap': {
+'name': 'LDAP',
+'ip_protocol': 'tcp',
+'from_port': '389',
+'to_port': '389',
+},
+'https': {
+'name': 'HTTPS',
+'ip_protocol': 'tcp',
+'from_port': '443',
+'to_port': '443',
+},
+'smtps': {
+'name': 'SMTPS',
+'ip_protocol': 'tcp',
+'from_port': '465',
+'to_port': '465',
+},
+'imaps': {
+'name': 'IMAPS',
+'ip_protocol': 'tcp',
+'from_port': '993',
+'to_port': '993',
+},
+'pop3s': {
+'name': 'POP3S',
+'ip_protocol': 'tcp',
+'from_port': '995',
+'to_port': '995',
+},
+'ms_sql': {
+'name': 'MS SQL',
+'ip_protocol': 'tcp',
+'from_port': '1433',
+'to_port': '1433',
+},
+'mysql': {
+'name': 'MYSQL',
+'ip_protocol': 'tcp',
+'from_port': '3306',
+'to_port': '3306',
+},
+'rdp': {
+'name': 'RDP',
+'ip_protocol': 'tcp',
+'from_port': '3389',
+'to_port': '3389',
+},
+}
+
+
+###################
+# Ubuntu Settings #
+###################
+
+# Enable the Ubuntu theme if it is present.
+try:
+from ubuntu_theme import *
+except ImportError:
+pass
+
+# Default Ubuntu apache configuration uses /horizon as the application root.
+# Configure auth redirects here accordingly.
+LOGIN_URL='/auth/login/'
+LOGOUT_URL='/auth/logout/'
+LOGIN_REDIRECT_URL='/'
+
+# By default, validation of the HTTP Host header is disabled.Production
+# installations should have this set accordingly.For more information
+# see https://docs.djangoproject.com/en/dev/ref/settings/.
+ALLOWED_HOSTS = '*'
+
+# Compress all assets offline as part of packaging installation
+COMPRESS_OFFLINE = True
+EOF
+
+# Apache Conf
+cat > /etc/apache2/conf-enabled/openstack-dashboard.conf << EOF
+WSGIScriptAlias / /usr/share/openstack-dashboard/openstack_dashboard/wsgi/django.wsgi
+WSGIDaemonProcess horizon user=horizon group=horizon processes=3 threads=10
+WSGIProcessGroup horizon
+Alias /static /usr/share/openstack-dashboard/openstack_dashboard/static/
+<Directory /usr/share/openstack-dashboard/openstack_dashboard/wsgi>
+Order allow,deny
+Allow from all
+</Directory>
+EOF
+
+service apache2 restart
+
+# rsyslog remote connections
+sudo echo "\$ModLoad imudp" >> /etc/rsyslog.conf
+sudo echo "\$UDPServerRun 5140" >> /etc/rsyslog.conf
+sudo echo "\$ModLoad imtcp" >> /etc/rsyslog.conf
+sudo echo "\$InputTCPServerRun 5140" >> /etc/rsyslog.conf
+sudo restart rsyslog
+
+# Create an openrcfile
+cat > ${INSTALL_DIR}/openrc <<EOF
+export OS_TENANT_NAME=ostest
+export OS_USERNAME=admin
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=https://${MNG_IP}:5000/v2.0/
+export OS_KEY=${INSTALL_DIR}/cakey.pem
+export OS_CACERT=${INSTALL_DIR}/ca.pem
+EOF
+
+# Copy openrc file to local instance vagrant root folder in case of loss of file share
+sudo cp ${INSTALL_DIR}/openrc ${HOME_DIR}
+
+# Hack: restart neutron again...
+service neutron-server restart
